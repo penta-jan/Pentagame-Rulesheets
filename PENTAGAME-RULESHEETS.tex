@@ -1,0 +1,58 @@
+\documentclass[12pt]{scrartcl}
+\PassOptionsToPackage{english}{babel}
+\PassOptionsToPackage{french}{babel}
+\PassOptionsToPackage{ngerman}{babel}
+\PassOptionsToPackage{latin}{babel}
+\usepackage{newcent}
+\usepackage{babel}[ngerman,english,french]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage[portrait,a4paper]{geometry}
+\geometry{verbose,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{tikz}
+\raggedbottom
+\raggedcolumns
+
+\newcommand{\noun}[1]{\textsc{#1}}
+
+%%% Document specific commands
+
+\newcommand{\headline}{\section*{{\LARGE{}Pentagame}}}
+
+\newcommand{\layout}{\input{layout.tex}}
+\newcommand{\general}{}
+\newcommand{\choosex}{}
+\newcommand{\setup}{}
+\newcommand{\objective}{}
+\newcommand{\rules}{}
+\newcommand{\website}{
+    \begin{flushright}
+    \textsf{\textbf{pentagame.org}}
+    \par\end{flushright}
+}
+
+
+\setlength{\parskip}{0ex}
+\setlength{\parindent}{0cm}
+
+
+%% Actual Document. Calling the content first, then printing the same layout.
+
+\begin{document}
+
+\input{english.tex}
+\layout
+\input{deutsch.tex}
+\layout
+
+\input{francais.tex}
+\layout
+
+\input{latine.tex}
+\layout
+
+
+\end{document}
