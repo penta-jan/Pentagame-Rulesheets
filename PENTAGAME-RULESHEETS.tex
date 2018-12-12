@@ -13,6 +13,8 @@
 \usepackage{setspace}
 \usepackage{multicol}
 \usepackage{microtype}
+\usepackage{CJKutf8}
+%\usepackage{CJK}
 \usepackage{tikz}
 \raggedbottom
 \raggedcolumns
@@ -64,5 +66,9 @@
 
 \input{indonesian.tex}
 \layout
+\begin{CJK*}{UTF8}{gbsn}
+\input{simplechinese.tex}
+\layout
+\end{CJK*}
 
 \end{document}
