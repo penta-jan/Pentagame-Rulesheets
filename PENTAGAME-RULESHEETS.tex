@@ -1,13 +1,14 @@
-\documentclass[11pt]{scrartcl}
+\documentclass[11pt,russian,french,ngerman,latin,bahasai,english]{scrartcl}
 \PassOptionsToPackage{english}{babel}
 \PassOptionsToPackage{french}{babel}
 \PassOptionsToPackage{ngerman}{babel}
 \PassOptionsToPackage{latin}{babel}
 \PassOptionsToPackage{bahasai}{babel}
+\PassOptionsToPackage{russian}{babel}
 \usepackage{newcent}
-\usepackage{babel}[ngerman,english,french]
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{luainputenc}
+\usepackage{babel}[ngerman,english,french,russian]
+\usepackage[OT2,T1]{fontenc}
+\usepackage[lutf8x,utf8]{luainputenc}
 \usepackage[portrait,a4paper]{geometry}
 \geometry{verbose,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
 \usepackage{setspace}
@@ -56,6 +57,9 @@
 \input{deutsch.tex}
 \layout
 \input{vulgaerdeutsch.tex}
+\layout
+
+\input{russian.tex}
 \layout
 
 \input{francais.tex}
