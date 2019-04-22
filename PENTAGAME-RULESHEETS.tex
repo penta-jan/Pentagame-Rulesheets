@@ -1,16 +1,17 @@
-\documentclass[11pt,spanish,russian,french,ngerman,latin,bahasai,english]{scrartcl}
+\documentclass[DIV=19,b5paper,12pt,spanish,russian,french,ngerman,latin,bahasai,english]{scrartcl}
 \PassOptionsToPackage{english}{babel}
 \PassOptionsToPackage{french}{babel}
 \PassOptionsToPackage{ngerman}{babel}
 \PassOptionsToPackage{latin}{babel}
 \PassOptionsToPackage{bahasai}{babel}
 \PassOptionsToPackage{russian}{babel}
-\usepackage{newcent}
+%\usepackage{newcent}
+\usepackage{mathptmx}
 \usepackage{babel}[ngerman,english,french,russian]
 \usepackage[OT2,T1]{fontenc}
 \usepackage[lutf8x,utf8]{luainputenc}
-\usepackage[portrait,a4paper]{geometry}
-\geometry{verbose,tmargin=0.8cm,bmargin=0.8cm,lmargin=0.8cm,rmargin=0.8cm}
+%\usepackage[portrait,b5paper]{geometry}
+%\geometry{verbose,tmargin=1.4cm,bmargin=3.2cm,lmargin=1.4cm,rmargin=1.2cm}
 \usepackage{setspace}
 \usepackage{multicol}
 \usepackage{microtype}
@@ -19,15 +20,28 @@
 \usepackage{tikz}
 \raggedbottom
 \raggedcolumns
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
 
 \newcommand{\noun}[1]{\textsc{#1}}
 
+
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{1ex \@plus 1ex \@minus .2ex}{\\}%
+  {\sffamily\normalsize\bfseries}%
+}
+\makeatother
 %%% Document specific commands
 
-\newcommand{\headline}{\section*{{\LARGE{}Pentagame}}}
+\newcommand{\myskip}{\smallskip}
+
+\newcommand{\headline}{{\LARGE{}Pentagame}}
 \newcommand{\tocent}{}
 \newcommand{\translator}{}
-\newcommand{\layout}{\input{layout.tex}}
+\newcommand{\layout}{\input{layouta2.tex}}
 \newcommand{\general}{}
 \newcommand{\choosext}{}
 \newcommand{\choosex}{}
@@ -48,43 +62,69 @@
 \setlength{\parindent}{0cm}
 
 
+\title{Penta$\cdot$game}
+%\subtitle{Regulae $\cdot$ Rules $\cdot$ Regeln $\cdot$ Règles $\cdot$ Reglas $\cdot$ Правила $\cdot$ Peraturan }
+\author{Jan Suchanek a.k.a. Penta}
+\publishers{\makeatletter jan@pentagame.org \makeatother}
+\date{April 21, 2019}
+
 %% Actual Document. Calling the content first, then printing the same layout.
 
 \begin{document}
 
-\input{english.tex}
-\layout
-\input{deutsch.tex}
-\layout
-\input{vulgaerdeutsch.tex}
-\layout
+\maketitle
 
-\input{russian.tex}
-\layout
+\tableofcontents
 
-\input{francais.tex}
-\layout
+\newpage
+
+%\begin{multicols}{2}
 
 \input{latine.tex}
 \layout
+\pagebreak
 
-\input{indonesian.tex}
+\input{english.tex}
 \layout
+\pagebreak
+
+\input{deutsch.tex}
+\layout
+\pagebreak
+
+
+\input{vulgaerdeutsch.tex}
+\layout
+\pagebreak
+
+\input{francais.tex}
+\layout
+\pagebreak
+
+\input{russian.tex}
+\layout
+\pagebreak
 
 \input{espaniol.tex}
 \layout
+\pagebreak
+
+\input{indonesian.tex}
+\layout
+\pagebreak
 
 \begin{CJK*}{UTF8}{bkai}
 \input{tradchinese.tex}
 \layout
 \end{CJK*}
+\pagebreak
 
 \begin{CJK*}{UTF8}{gbsn}
 \input{simplechinese.tex}
 \layout
 \end{CJK*}
 
-
+%\end{multicols}
 
 
 \end{document}
