@@ -5,17 +5,33 @@
 \PassOptionsToPackage{latin}{babel}
 \PassOptionsToPackage{bahasai}{babel}
 \PassOptionsToPackage{russian}{babel}
-%\usepackage{newcent}
+\usepackage{hyperref}
+\hypersetup{
+pdftitle={Pentagame Regulae Rules Regeln Regles},
+pdfsubject={Pentagame Rules in Many Languages},
+pdfauthor={Jan Suchanek et al.},
+pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
+}
 \usepackage{mathptmx}
 \usepackage{babel}[ngerman,english,french,russian]
 \usepackage[OT2,T1]{fontenc}
 \usepackage[lutf8x,utf8]{luainputenc}
-%\usepackage[portrait,b5paper]{geometry}
-%\geometry{verbose,tmargin=1.4cm,bmargin=3.2cm,lmargin=1.4cm,rmargin=1.2cm}
 \usepackage{setspace}
 \usepackage{multicol}
+\usepackage{titlesec}
 \usepackage{microtype}
 \usepackage{CJKutf8}
+\usepackage{pgfpages,tikz,lipsum}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{automata, positioning}
+\usetikzlibrary{hobby}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{patterns}
+
 %\usepackage{CJK}
 \usepackage{tikz}
 \raggedbottom
@@ -52,9 +68,7 @@
 \newcommand{\rulest}{}
 \newcommand{\rules}{}
 \newcommand{\website}{
-    \begin{flushright}
     \textsf{\textbf{pentagame.org}}
-    \par\end{flushright}
 }
 
 
@@ -64,26 +78,31 @@
 
 \title{Penta$\cdot$game}
 %\subtitle{Regulae $\cdot$ Rules $\cdot$ Regeln $\cdot$ Règles $\cdot$ Reglas $\cdot$ Правила $\cdot$ Peraturan }
-\author{Jan Suchanek a.k.a. Penta\\\makeatletter jan@pentagame.org \makeatother}
-\date{April 21, 2019}
+\author{Jan Suchanek a.k.a. Penta\\ \href{mailto:jan@pentagame.org}{\makeatletter jan@pentagame.org\makeatother} }
+%\date{April 21, 2019}
 
 %% Actual Document. Calling the content first, then printing the same layout.
 
 \begin{document}
 
-\maketitle
+%\maketitle
 
-\tableofcontents
+%\tableofcontents
 
 \newpage
 
+\phantomsection
 %\begin{multicols}{2}
 
-\input{latine.tex}
+\input{illustrated.tex}
+
+\clearpage
+
+\input{english.tex}
 \layout
 \pagebreak
 
-\input{english.tex}
+\input{latine.tex}
 \layout
 \pagebreak
 
@@ -92,9 +111,9 @@
 \pagebreak
 
 
-\input{vulgaerdeutsch.tex}
-\layout
-\pagebreak
+%\input{vulgaerdeutsch.tex}
+%\layout
+%\pagebreak
 
 \input{platt.tex}
 \layout
