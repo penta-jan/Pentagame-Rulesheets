@@ -16,7 +16,7 @@
     \centering
         \item Every player has one piece on each corner
         \item Black blocks sit on central nodes
-        \item Goal: pieces want to reach the coloured nodes opposite
+        \item Goal: Reach the coloured nodes opposite
         \item Everything goes, but no jumping allowed
         \item Replace blocks, swap with pieces
         \item Upon moving out place a grey block
@@ -62,7 +62,7 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (1) -- (1a);
+    \draw[>=triangle 45, line width=1.5pt, ->] (1) -- (1a) ;
     \end{scope}
     \end{tikzpicture}
     %\caption{Objective}
@@ -125,7 +125,7 @@
     \end{tikzpicture}
     %\caption{Simple move on ring}
     
-    You can move \textbf{in any direction,} on the ring, on the star, clockwise, counter-clockwise, as you please.
+    You can move \textbf{in any direction,} on the ring and on the star.
     
    \skipper
 
@@ -171,7 +171,7 @@
     
     But:\textbf{ you cannot jump!}
      
-
+\newpage
     
    
     \skipper
@@ -234,7 +234,7 @@
     \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
     } 
     %\draw[dashed] ({360/\n * (1 - 1)+95}:\radius)      arc ({360/\n * (1 - 1)+95}:{360/\n * (1)+85}:\radius)  node[midway, rotate=-18] {$\times$};
-    \draw[>=triangle 45, line width=1.5pt, <->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (2-1)+85}:\radius) node[midway,right]{$swap$};
+    \draw[>=triangle 45, style=double, line width=0.5pt, <->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (2-1)+85}:\radius) node[midway,right]{$swap$};
     
     %\draw[line width=1.5pt, -] ({360/\n * (1)+90}:\radius)      arc ({360/\n * (1)+90}:{360/\n * (2)+90}:\radius) node[midway,below]{};
     
@@ -259,7 +259,7 @@
     
     You can \textbf{swap} two neighbouring pieces \\ (at least one of which must be yours). 
     
-    Of course the path must be free!
+    Of course the way must be free!
     
     
     
@@ -317,9 +317,9 @@
     \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
     } 
     
-    \draw[line width=1.5pt, -] ({360/\n * (1)+90}:\radius)      arc ({360/\n * (1)+90}:{360/\n * (2)+90}:\radius) node[midway,left]{$swap$};
+    \draw[style=double, line width=0.5pt, -] ({360/\n * (1)+90}:\radius)      arc ({360/\n * (1)+90}:{360/\n * (2)+90}:\radius) node[midway,left]{$swap$};
     
-    \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    \node[state, fill=black] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     
     \node[state, fill=blue] (2) at ({360/\n * (2 - 1)+90}:\radius){};   
@@ -335,11 +335,14 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     
     
-    \draw[>=triangle 45, line width=1.5pt, <-] (1) -- (4a) node[midway,right]{};
-    \draw[>=triangle 45, line width=1.5pt, -] (4a) -- (2) node[midway,left]{};
-    \draw[>=triangle 45, line width=1.5pt, -] (3) -- (5a) node[midway,left]{};
+   % \draw[>=triangle 45, line width=1.5pt, <-] (1) -- (4a) node[midway,right]{};
+   
+   %\draw[dotted, >=triangle 45, line width=0.5pt, <->] (1a) -- (4a) ;
+   
+    \draw[>=triangle 45, style=double, line width=0.5pt, <-] (4a) -- (2) node[midway,left]{};
+    \draw[>=triangle 45, style=double, line width=0.5pt,  -] (3) -- (5a) node[midway,left]{};
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (5a) -- (1a) node[midway,left]{};
+    \draw[>=triangle 45, style=double, line width=0.5pt, ->] (5a) -- (1a) node[midway,left]{};
     
     \draw[dotted] (5a) --  (4a) node[midway, color=black] {$\bullet$};
     \draw[dotted] (2) --  (5a) node[midway, color=black] {$\bullet$};
@@ -352,7 +355,7 @@
     
     \textbf{Turn} at free corners without stopping. 
 
-    Paths can be long!
+    Ways can be long!
     
     \pagebreak
     
@@ -391,9 +394,9 @@
     
     \draw[dashed, >=triangle 45, line width=1.5pt, ->] (1) -- (1a);
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (1a) -- (1,-1);
+    \draw[>=triangle 45, line width=1.5pt, ->] (1a) -- (1,-1) node[left]{out};
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (-0.4,0) -- (-2.4,1.7);
+    \draw[>=triangle 45, line width=1.5pt, ->] (-0.4,0) -- (-2.4,1.7) node[right]{grey};
     
     
     \end{scope}
@@ -429,7 +432,7 @@ Edge cases:
 \vspace{5ex}
 
 
-You are welcome to visit \website ! 
+Please visit \website ! 
 
 
 %\end{multicols}
