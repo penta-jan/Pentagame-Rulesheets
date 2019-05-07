@@ -14,7 +14,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 }
 \usepackage{mathptmx}
 \usepackage{babel}[ngerman,english,french,russian]
-\usepackage[OT2,T1]{fontenc}
+\usepackage[OT2,T1,T2A]{fontenc}
 \usepackage[lutf8x,utf8]{luainputenc}
 %\usepackage{ruhyphen}
 \usepackage{setspace}
@@ -44,13 +44,18 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \newcommand{\noun}[1]{\textsc{#1}}
 
 
+
+
 \makeatletter
-\renewcommand{\paragraph}{%
-  \@startsection{paragraph}{4}%
-  {\z@}{1ex \@plus 1ex \@minus .2ex}{\\}%
+\renewcommand\paragraph{%
+\@startsection{paragraph}{4}%
+{\z@}{1ex\@plus 1ex \@minus .2ex}%
+{0.2ex \@plus .2ex}%
   {\sffamily\normalsize\bfseries}%
-}
-\makeatother
+ }
+ \makeatother
+
+
 %%% Document specific commands
 
 \newcommand{\myskip}{\smallskip}
@@ -58,7 +63,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \newcommand{\headline}{{\LARGE{}Pentagame}}
 \newcommand{\tocent}{}
 \newcommand{\translator}{}
-\newcommand{\layout}{\input{layouta2.tex}}
+
 \newcommand{\general}{}
 \newcommand{\choosext}{}
 \newcommand{\choosex}{}
@@ -69,22 +74,69 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \newcommand{\rulest}{}
 \newcommand{\rules}{}
 \newcommand{\website}{\textsf{\textbf{pentagame.org}}}
+\newcommand{\layout}{
+\begin{centering}
 
+{\sffamily\LARGE{\textbf\headline}}
+\addcontentsline{toc}{section}{\tocent}
+
+\end{centering}
+
+\bigskip
+
+\hrulefill
+
+
+\begin{multicols}{2}
+
+%\noindent\hrulefill
+\general
+\paragraph*{\choosext}
+\choosex
+\paragraph*{\setupt}
+\setup
+\paragraph*{\objectivet}
+\objective
+
+
+\medskip
+\parbox{\columnwidth}{
+\paragraph*{\rulest}
+\rules
+}
+
+\end{multicols}}
 
 \setlength{\parskip}{0ex}
 \setlength{\parindent}{0cm}
 
 
-\title{Penta$\cdot$game}
-%\subtitle{Regulae $\cdot$ Rules $\cdot$ Regeln $\cdot$ Règles $\cdot$ Reglas $\cdot$ Правила $\cdot$ Peraturan }
-\author{Jan Suchanek a.k.a. Penta\\ \href{mailto:jan@pentagame.org}{\makeatletter jan@pentagame.org\makeatother} }
-%\date{April 21, 2019}
+\title{
+\includegraphics[width=0.5\textwidth]{Pentagame_board_2018.png}\\
+Penta$\cdot$game}
+%\subtitle{by Jan Suchanek}
+\author{ \href{mailto:jan@pentagame.org}{\makeatletter jan@pentagame.org\makeatother} }
+\date{}
 
 %% Actual Document. Calling the content first, then printing the same layout.
 
 \begin{document}
 
-%\maketitle
+\maketitle
+
+
+ \begin{enumerate}
+    \centering
+        \item Every player has one piece on each corner
+        \item Black blocks sit on central nodes
+        \item Goal: Reach the coloured nodes opposite
+        \item Everything goes, but no jumping allowed
+        \item Replace blocks, swap with pieces
+        \item Upon moving out, place a grey block
+        \item Three pieces out wins
+        \item Grey blocks are one time blocks
+        \item No repetition (Ko)
+    \end{enumerate}
 
 %\tableofcontents
 
@@ -115,7 +167,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 %\pagebreak
 
 \input{platt.tex}
-\layout
+\layout\
 \pagebreak
 
 \input{francais.tex}
