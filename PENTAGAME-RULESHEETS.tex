@@ -48,7 +48,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \newcommand{\noun}[1]{\textsc{#1}}
 
 
-
+\newcounter{oldpage}
 
 
 \makeatletter
@@ -177,8 +177,16 @@ Penta$\cdot$game}
 \selectlanguage{latin}
 
 \input{latine.tex}
+\setcounter{oldpage}{\thepage}
+\pagenumbering{Roman}
+\setcounter{page}{\theoldpage}
+
 \layout
 \pagebreak
+\pagenumbering{arabic}
+\stepcounter{oldpage}
+\setcounter{oldpage}{\theoldpage}
+\setcounter{page}{\theoldpage}
 
 \selectlanguage{french}
 
