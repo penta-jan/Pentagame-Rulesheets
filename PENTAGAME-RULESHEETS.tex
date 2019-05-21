@@ -1,10 +1,12 @@
-\documentclass[DIV=19,b5paper,twoside,12pt,spanish,russian,french,ngerman,latin,bahasai,english]{scrartcl}
+\documentclass[DIV=19,b5paper,twoside,12pt,spanish,russian,french,ngerman,latin,greek,bahasai,english]{scrartcl}
 \PassOptionsToPackage{english}{babel}
 \PassOptionsToPackage{french}{babel}
 \PassOptionsToPackage{ngerman}{babel}
 \PassOptionsToPackage{latin}{babel}
 \PassOptionsToPackage{bahasai}{babel}
 \PassOptionsToPackage{russian}{babel}
+\PassOptionsToPackage{greek}{babel}
+
 \usepackage{hyperref}
 \hypersetup{
 pdftitle={Pentagame Regulae Rules Regeln Regles},
@@ -14,8 +16,10 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 }
 \usepackage{mathptmx}
 \usepackage{babel}[ngerman,english,french,russian]
-\usepackage[OT2,T1,T2A]{fontenc}
+\usepackage[LGR,OT2,T1,T2A]{fontenc}
 \usepackage[lutf8x,utf8]{luainputenc}
+\usepackage{substitutefont}
+\substitutefont{LGR}{\rmdefault}{udidot}
 %\usepackage{ruhyphen}
 \usepackage{setspace}
 \usepackage{multicol}
@@ -42,6 +46,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \displaywidowpenalty = 10000
 
 \newcommand{\noun}[1]{\textsc{#1}}
+
 
 
 
@@ -154,6 +159,8 @@ Penta$\cdot$game}
 \layout
 \pagebreak
 
+\selectlanguage{ngerman}
+
 \input{deutsch.tex}
 \layout
 \pagebreak
@@ -167,21 +174,37 @@ Penta$\cdot$game}
 \layout\ 
 \pagebreak
 
+\selectlanguage{latin}
+
 \input{latine.tex}
 \layout
 \pagebreak
+
+\selectlanguage{french}
 
 \input{francais.tex}
 \layout
 \pagebreak
 
+\selectlanguage{russian}
+
 \input{russian.tex}
 \layout
 \pagebreak
 
+\selectlanguage{spanish}
+
 \input{espaniol.tex}
 \layout
 \pagebreak
+
+\selectlanguage{greek}
+\input{greek.tex}
+{\footnotesize
+\layout}
+\pagebreak
+
+\selectlanguage{bahasai}
 
 \input{indonesian.tex}
 \layout
