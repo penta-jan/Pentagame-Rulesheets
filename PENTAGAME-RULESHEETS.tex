@@ -1,11 +1,4 @@
-\documentclass[DIV=19,b5paper,twoside,12pt,spanish,russian,french,ngerman,latin,greek,bahasai,english]{scrartcl}
-\PassOptionsToPackage{english}{babel}
-\PassOptionsToPackage{french}{babel}
-\PassOptionsToPackage{ngerman}{babel}
-\PassOptionsToPackage{latin}{babel}
-\PassOptionsToPackage{bahasai}{babel}
-\PassOptionsToPackage{russian}{babel}
-\PassOptionsToPackage{greek}{babel}
+\documentclass[DIV=19,paper=b5,12pt]{scrartcl}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -14,18 +7,23 @@ pdfsubject={Pentagame Rules in Many Languages},
 pdfauthor={Jan Suchanek et al.},
 pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
 }
-\usepackage{mathptmx}
-\usepackage{babel}[ngerman,english,french,russian]
-\usepackage[LGR,OT2,T1,T2A]{fontenc}
-\usepackage[lutf8x,utf8]{luainputenc}
-\usepackage{substitutefont}
-\substitutefont{LGR}{\rmdefault}{udidot}
-%\usepackage{ruhyphen}
+
+\usepackage{polyglossia}
+\usepackage{xeCJK}
+\setmainlanguage{english}
+\setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian}
+
+\DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
+
+\setmainfont{FreeSerif}
+\setsansfont{FreeSans}
+\newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
+
 \usepackage{setspace}
 \usepackage{multicol}
 \usepackage{titlesec}
 \usepackage{microtype}
-\usepackage{CJKutf8}
+% \usepackage{CJKutf8}
 \usepackage{pgfpages,tikz,lipsum}
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.multipart}
@@ -159,8 +157,7 @@ Penta$\cdot$game}
 \layout
 \pagebreak
 
-\selectlanguage{ngerman}
-
+\begin{otherlanguage}{ngerman}
 \input{deutsch.tex}
 \layout
 \pagebreak
@@ -171,63 +168,68 @@ Penta$\cdot$game}
 %\pagebreak
 
 \input{platt.tex}
-\layout\ 
+\layout 
 \pagebreak
+\end{otherlanguage}
 
-\selectlanguage{latin}
-
+\begin{otherlanguage}{latin}
 \input{latine.tex}
 \setcounter{oldpage}{\thepage}
 \pagenumbering{Roman}
 \setcounter{page}{\theoldpage}
 
 \layout
+\end{otherlanguage}
 \pagebreak
 \pagenumbering{arabic}
 \stepcounter{oldpage}
 \setcounter{oldpage}{\theoldpage}
 \setcounter{page}{\theoldpage}
 
-\selectlanguage{french}
-
+\begin{otherlanguage}{french}
 \input{francais.tex}
 \layout
+\end{otherlanguage}
 \pagebreak
 
-\selectlanguage{russian}
-
+\begin{otherlanguage}{russian}
 \input{russian.tex}
 \layout
+\end{otherlanguage}
 \pagebreak
 
-\selectlanguage{spanish}
+\begin{otherlanguage}{georgian}
+\input{georgian.tex}
+\layout
+\end{otherlanguage}
+\pagebreak
 
+\begin{otherlanguage}{spanish}
 \input{espaniol.tex}
 \layout
+\end{otherlanguage}
 \pagebreak
 
-\selectlanguage{greek}
+\begin{otherlanguage}{greek}
 \input{greek.tex}
 {\footnotesize
 \layout}
+\end{otherlanguage}
 \pagebreak
 
-\selectlanguage{bahasai}
-
+\begin{otherlanguage}{bahasai}
 \input{indonesian.tex}
 \layout
+\end{otherlanguage}
 \pagebreak
 
-\begin{CJK*}{UTF8}{bkai}
+{\tradChinesefont
 \input{tradchinese.tex}
-\layout
-\end{CJK*}
+\layout}
 \pagebreak
 
-\begin{CJK*}{UTF8}{gbsn}
 \input{simplechinese.tex}
 \layout
-\end{CJK*}
 
 %\end{multicols}
 
