@@ -2,13 +2,15 @@
 {0pt}{1ex plus 1ex minus .2ex}{-2.3ex plus .2ex}
 \newcommand{\skipper}{\medskip\hrulefill\section{}}
 
-\tikzset{state/.style={circle, draw, inner sep=4.3pt, opacity=1, fill=black, minimum size=0.2pt}}
-\tikzset{statez/.style={draw, thick, inner sep=3.8pt, opacity=1, fill=black, minimum size=0.2pt}}
-\tikzset{empty/.style={circle, draw, inner sep=4.3pt, opacity=0, fill=white, minimum size=0.2pt}}
+\def \n {5} \def \radius {0.3\textwidth} \def \raz {1.4cm}    \def \radiusz {6.5cm}
+
+\tikzset{state/.style={circle, draw, inner sep=0.25cm, opacity=1, fill=black, minimum size=0.2pt}}
+\tikzset{statez/.style={draw, thick, inner sep=0.2cm, opacity=1, fill=black, minimum size=0.2pt}}
+%\tikzset{empty/.style={circle, draw, inner sep=4.3pt, opacity=0, fill=white, minimum size=0.2pt}}
     \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=2pt, outer sep=2pt},
     %default radius will be 1pt. 
     cross/.default={1pt}}  
-    \def \n {5} \def \radius {3cm} \def \raz {1.4cm}    \def \radiusz {4.5cm}
+    
   
 \newpage
 
