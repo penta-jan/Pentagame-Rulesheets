@@ -10,7 +10,7 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikzpeople}
 
-
+\usepackage{framed}
 \usepackage{polyglossia}
 \usepackage{xeCJK}
 \setmainlanguage{english}
@@ -128,30 +128,13 @@ Penta$\cdot$game}
 
 \begin{document}
 
-\maketitle
+%\maketitle
 
 
- \begin{enumerate}
-    \centering
-        \item Every player plays one shape
-        \item Every player has one piece on each corner
-        \item Black blocks sit on central nodes
-        \item Goal: Reach the coloured nodes opposite
-        \item Everything goes, but no jumping allowed
-        \item Replace blocks
-        \item Swap neighbouring pieces
-        \item Upon moving out, place a grey block
-        \item Three pieces out wins
-        \item Grey blocks are one time blocks
-        \item No repetition (Ko)
-    \end{enumerate}
-
-%\tableofcontents
-
-\newpage
 
 \phantomsection
-%\begin{multicols}{2}
+
+
 
     \input{illustrated.tex}
 
