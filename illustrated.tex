@@ -6,8 +6,12 @@
 
 \usetikzlibrary{shapes}
 
+
 \tikzset{state/.style={circle, draw, inner sep=0.25cm, opacity=1, fill=black, minimum size=0.2pt}}
+
 \tikzset{statez/.style={diamond,draw, thick, inner sep=0.1cm, opacity=1, fill=black, minimum size=0.2pt}}
+
+\tikzset{statezz/.style={regular polygon,regular polygon sides=3,draw, thick, inner sep=0.08cm, opacity=1, fill=black, minimum size=0.2pt}}
 \tikzset{staten/.style={diamond, thick, inner sep=0.1cm,  minimum size=0.2pt}}
 
 %\tikzset{empty/.style={circle, draw, inner sep=4.3pt, opacity=0, fill=white, minimum size=0.2pt}}
@@ -29,6 +33,26 @@
 
     \centering
     
+    \skipper
+    \begin{tikzpicture}
+        \node[alice, minimum size=1cm] at (-1,2) (alice) {};
+        \node[statez, fill=white] at (1,2) {};
+        \node[statez, fill=blue] at (2,2) {};
+        \node[statez, fill=red] at (3,2) {};
+        \node[statez, fill=yellow] at (4,2) {};
+        \node[statez, fill=green] at (5,2) {};
+
+        \node[bob, minimum size=1cm] at (-1,0) (bob) {};
+        \node[statezz, fill=white] at (1,0) {};
+        \node[statezz, fill=blue] at (2,0) {};
+        \node[statezz, fill=red] at (3,0) {};
+        \node[statezz, fill=yellow] at (4,0) {};
+        \node[statezz, fill=green] at (5,0) {};
+
+    \end{tikzpicture}
+        
+    Everyone has pieces of one \textbf{shape.}
+    
     \skipper 
     
     \begin{tikzpicture}[scale=0.65]
@@ -41,7 +65,7 @@
 \boardy
     
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
-    \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    \node (1t) at ({360/\n * (1 - 1)+90}:\radius) {};  
     
     \node (01) at ({360/\n * (1 - 1)+90}:\radiusz) {};  
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
@@ -77,9 +101,8 @@
     \end{tikzpicture}
     %\caption{Objective}
     
-    Everyone has pieces of one \textbf{shape.}
     
-    They all start at the rim.
+    All pieces start at the rim, on the stop of their colour.
     
  
 
@@ -173,6 +196,12 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=black] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {};     
     
+    \node[statez, fill=gray] (g1) at (-2,-6) {}; 
+    \node[statez, fill=gray] (g1) at (-1,-6) {}; 
+    \node[statez, fill=gray] (g1) at (0,-6) {}; 
+    \node[statez, fill=gray] (g1) at (1,-6) {}; 
+    \node[statez, fill=gray] (g1) at (2,-6) {}; 
+    
     \end{scope}
     \end{tikzpicture}
     %\caption{Objective}
@@ -182,6 +211,7 @@
     
     They are neutral.
 
+    Safe grey blocks for later.
   
 \skipper 
 
