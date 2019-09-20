@@ -4,12 +4,23 @@
 
 \def \n {5} \def \radius {0.3\textwidth} \def \raz {1.4cm}    \def \radiusz {6.5cm}
 
+\usetikzlibrary{shapes}
+
 \tikzset{state/.style={circle, draw, inner sep=0.25cm, opacity=1, fill=black, minimum size=0.2pt}}
-\tikzset{statez/.style={draw, thick, inner sep=0.2cm, opacity=1, fill=black, minimum size=0.2pt}}
+\tikzset{statez/.style={diamond,draw, thick, inner sep=0.1cm, opacity=1, fill=black, minimum size=0.2pt}}
+\tikzset{staten/.style={diamond, thick, inner sep=0.1cm,  minimum size=0.2pt}}
+
 %\tikzset{empty/.style={circle, draw, inner sep=4.3pt, opacity=0, fill=white, minimum size=0.2pt}}
-    \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=2pt, outer sep=2pt},
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=2pt, outer sep=2pt},
     %default radius will be 1pt. 
     cross/.default={1pt}}  
+
+\newcommand{\boardy}{
+    \foreach \s in {1,...,\n} { 
+    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
+    \draw[dashed, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
+    } 
+}
     
   
 \newpage
@@ -27,10 +38,7 @@
     
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
+\boardy
     
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};  
@@ -71,7 +79,7 @@
     
     Everyone has pieces of one \textbf{shape.}
     
-    They start at the rim.
+    They all start at the rim.
     
  
 
@@ -89,12 +97,11 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
+\boardy 
     
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    \node[staten] (1n) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     
@@ -115,7 +122,7 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     
     
-    \draw[>=triangle 45, dashed, line width=1.5pt, ->] (1) -- (1a) ;
+    \draw[>=triangle 45, dashed, line width=1.5pt, ->] (1n) -- (1t) ;
     \end{scope}
     \end{tikzpicture}
     %\caption{Objective}
@@ -139,11 +146,8 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    
+\boardy
+
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
@@ -193,11 +197,9 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    %\draw[dashed] ({360/\n * (1 - 1)+95}:\radius)      arc ({360/\n * (1 - 1)+95}:{360/\n * (1)+85}:\radius)  node[midway, rotate=-18] {$\times$};
+\boardy
+
+%\draw[dashed] ({360/\n * (1 - 1)+95}:\radius)      arc ({360/\n * (1 - 1)+95}:{360/\n * (1)+85}:\radius)  node[midway, rotate=-18] {$\times$};
     \draw[>=triangle 45, line width=1.5pt, ->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (2-1)+80}:\radius) node[midway,left]{};
     
     \draw[>=triangle 45, line width=1.5pt, ->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (-1)+100}:\radius) node[midway,left]{};
@@ -237,10 +239,7 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
+\boardy 
     
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};  
@@ -267,7 +266,7 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=black] (5z) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {};     
     
-    \draw[>=triangle 45, line width=1.5pt, shorten >=1.5ex, ->] (1) -- (4a);
+    \draw[>=triangle 45, line width=1.5pt, shorten >=1.5ex, ->] (1t) -- (4a);
     \end{scope}
     \end{tikzpicture}
     %\caption{Simple move}
@@ -279,16 +278,15 @@
     
    
     \skipper
-    \begin{tikzpicture}[scale=0.65]
+
+\begin{tikzpicture}[scale=0.65]
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    
-    \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
+\boardy
+
+    \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};     
+    \node[staten] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};      
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=black] (1z) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     
@@ -308,9 +306,14 @@
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=black] (5z) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {};     
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (1) -- (4a) node[midway,right]{$hit$};
+    \node[statez, fill=black] (2l) at ({360/\n * (2.5 - 1)+90}:\radius){};
     
-    \draw[dashed, >=triangle 45, line width=1.5pt, ->] (4a) -- (-2.8,-1) node[midway,right]{$replace$};
+    \draw[>=triangle 45, line width=1.5pt, ->] (1t) -- (4z) node[midway,right]{$hit$};
+    
+    \draw[dashed, >=triangle 45, line width=1.5pt, ->] (4z) -- (2l) node[midway,right]{$replace$};
+    
+    
+    
     
     \end{scope}
     \end{tikzpicture}
@@ -329,15 +332,9 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    %\draw[dashed] ({360/\n * (1 - 1)+95}:\radius)      arc ({360/\n * (1 - 1)+95}:{360/\n * (1)+85}:\radius)  node[midway, rotate=-18] {$\times$};
-    \draw[>=triangle 45, style=double, line width=0.5pt, <->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (2-1)+85}:\radius) node[midway,right]{$swap$};
-    
-    %\draw[line width=1.5pt, -] ({360/\n * (1)+90}:\radius)      arc ({360/\n * (1)+90}:{360/\n * (2)+90}:\radius) node[midway,below]{};
-    
+\boardy
+
+
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[statez, fill=blue] (1t) at ({360/\n * (1 - 1)+90}:\radius) {};      
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
@@ -355,6 +352,9 @@
     \node[state, fill=green] (5) at ({360/\n * (5 - 1)+90}:\radius) {};   
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     
+    \draw[>=triangle 45, style=double, line width=0.5pt, <->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (2-1)+85}:\radius) node[midway,right]{$swap$};
+    
+    
     \end{scope}
     \end{tikzpicture}
     %\caption{Swap two pieces}
@@ -370,12 +370,10 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    
+\boardy
+
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    \node[staten] (1n) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {};     
     
@@ -391,12 +389,15 @@
     \node[state, fill=green] (5) at ({360/\n * (5 - 1)+90}:\radius) {};   
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
     
+    \node[statez, fill=gray] (2l) at ({360/\n * (2.5 - 1)+90}:\radius){};
+    \node[staten] (2q) at ({360/\n * (2.5 - 1)+90}:\radius+50){};
     
-    \draw[dashed, >=triangle 45, line width=1.5pt, ->] (1) -- (1a);
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (1a) -- (1,-1) node[left]{out};
+    \draw[dashed, >=triangle 45, line width=1.5pt, ->] (1n) -- (1t);
     
-    \draw[>=triangle 45, line width=1.5pt, ->] (-0.4,0) -- (-2.4,1.7) node[right]{grey};
+    \draw[>=triangle 45, line width=1.5pt, ->] (1t) -- (6,-1) node[left]{out};
+    
+    \draw[>=triangle 45, line width=1.5pt, ->] (2q) -- (2l) ;
     
     
     \end{scope}
@@ -419,12 +420,10 @@
     \scriptsize
     \begin{scope}[xscale=-1]
 
-    \foreach \s in {1,...,\n} { 
-    \draw[dashed, >=latex] ({360/\n * (\s - 1)}:\radius)      arc ({360/\n * (\s - 1)}:{360/\n * (\s)}:\radius);   
-    \draw[dotted, >=latex] ({360/\n * (\s - 2)+90}:\radius)      -- ({360/\n * (\s)+90}:\radius); 
-    } 
-    
+\boardy
+
     \node[state, fill=white] (1) at ({360/\n * (1 - 1)+90}:\radius) {};  
+    \node[staten] (1n) at ({360/\n * (1 - 1)+90}:\radius) {};  
     \node[state, fill=white] (1a) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     \node[statez, fill=white] (1t) at ({360/\n * (1 - 1)+90}:-\radius/2.618) {}; 
     
@@ -445,11 +444,12 @@
     \node[state, fill=green] (5) at ({360/\n * (5 - 1)+90}:\radius) {};   
     \node[statez, fill=black] (5z) at ({360/\n * (5 - 1)+90}:\radius) {};       
     \node[state, fill=green] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
+    \node[inner sep=0pt,outer sep=0,draw] (5n) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {}; 
+        
     
-    
-    \draw[>=triangle 45, line width=1.5pt, -] (1) -- (4a) node[midway,right]{};
-    \draw[>=triangle 45, line width=1.5pt, -] (4a) -- (5a) node[midway,right]{$turn$};
-    \draw[>=triangle 45, line width=1.5pt, ->] (5a) -- (1a) node[midway,left]{};
+    \draw[>=triangle 45, line width=1.5pt, -] (1n) -- (5n) node[midway,right]{};
+    %\draw[>=triangle 45, line width=1.5pt, -] (4a) -- (5a) node[midway,right]{$turn$};
+    \draw[>=triangle 45, line width=1.5pt, ->] (5n) -- (1t) node[midway,left]{};
     
     \end{scope}
     \end{tikzpicture}
