@@ -40,6 +40,10 @@
     \node[state, fill=LimeGreen] (5a) at ({360/\n * (5 - 1)+90}:-\radius/2.618) {};     
 }
     
+
+
+    
+
   
 
 \begin{framed}
@@ -165,6 +169,15 @@
 
    \skipper
 
+\newsavebox{\mybox}
+\sbox{\mybox}{%    
+    \begin{tikzpicture}[node distance=-3pt]
+        \node (nil) {};
+        \node[statez,fill=none,scale=0.7,left=of nil] (z) {} ;
+        \node[statezz, right=of nil, fill=none,scale=0.7] (zz) {};
+    \end{tikzpicture}
+}
+
 \begin{tikzpicture}[scale=0.65]
 
     \scriptsize
@@ -173,23 +186,29 @@
     \boardy
 
     
-    \node[statez, fill=white] (1t) at (1) {};  
+    %\node[statez, fill=white] (1t) at (1) {};  
+     
+    \node (1t) at (1) {\usebox{\mybox}};  
+    \node  (2t) at (2){\usebox{\mybox}};   
+    \node  (3t) at (3){\usebox{\mybox}};   
+    \node  (4t) at (4){\usebox{\mybox}};       
+    \node  (5t) at (5){\usebox{\mybox}};   
      
     \node[stateb, fill=black] (1b) at (1a) {}; 
      
-    \node[statez, fill=Cerulean] (2t) at (2){};   
+ %   \node  (2t) at (2){\usebox{\mybox}};   
      
     \node[stateb, fill=black] (2b) at (2a) {}; 
       
-    \node[statez, fill=WildStrawberry] (3t) at (3) {};      
+ %   \node[statez, fill=WildStrawberry] (3t) at (3) {};      
     
     \node[stateb, fill=black] (3a) at (3a) {}; 
     
-    \node[statez, fill=Goldenrod] (4t) at (4) {};     
+  %  \node[statez, fill=Goldenrod] (4t) at (4) {};     
      
     \node[stateb, fill=black] (4a) at (4a) {}; 
 
-    \node[statez, fill=LimeGreen] (5t) at (5) {};           
+%    \node[statez, fill=LimeGreen] (5t) at (5) {};           
      
     \node[stateb, fill=black] (5b) at (5a) {};     
     
