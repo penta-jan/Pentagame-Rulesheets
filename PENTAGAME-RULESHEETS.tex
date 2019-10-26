@@ -1,22 +1,31 @@
 \documentclass[DIV=19,paper=b5,12pt]{scrartcl}
 \usepackage{dingbat}
-\usepackage[hidelinks]{hyperref}
-\hypersetup{
-pdftitle={Pentagame Regulae Rules Regeln Regles},
-pdfsubject={Pentagame Rules in Many Languages},
-pdfauthor={Jan Suchanek et al.},
-pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
-}
+\usepackage[hidelinks]{cleveref}
+%\hypersetup{
+%pdftitle={Pentagame Regulae Rules Regeln Regles},
+%pdfsubject={Pentagame Rules in Many Languages},
+%pdfauthor={Jan Suchanek et al.},
+%pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
+%}
+
+\usepackage[symbol]{footmisc}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikzpeople}
 
 \usepackage{framed}
 \usepackage{polyglossia}
 \usepackage{xeCJK}
+\providecommand{\chapterformat}{}
 \setmainlanguage{english}
 \setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian,swedish,polish}
 
 \DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
 
 \setmainfont{FreeSerif}
 \setsansfont{FreeSans}
@@ -60,7 +69,6 @@ pdfkeywords={Pentagame board game rules explained latin english german deutsch l
   {\sffamily\normalsize\bfseries}%
  }
  \makeatother
-
 
 %%% Document specific commands
 
@@ -132,11 +140,11 @@ Penta$\cdot$game}
 
 
 
-\phantomsection
+%\phantomsection
 
 
 
-    \input{illustrated.tex}
+ %   \input{illustrated.tex}
 
 
 \clearpage

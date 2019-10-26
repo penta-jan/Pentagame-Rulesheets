@@ -1,6 +1,7 @@
 \titlespacing*{\section}
 {0pt}{1ex plus 1ex minus .2ex}{-2.3ex plus .2ex}
-\newcommand{\skipper}{\medskip\hrulefill\section{}}
+
+\newcommand{\skipper}[1]{\medskip\hrulefill\section{#1}~\\ }
 
 \def \n {5} \def \radius {0.3\textwidth} \def \raz {1.4cm}    \def \radiusz {6.5cm}
 
@@ -53,7 +54,12 @@
 
     \centering
     
-    \skipper
+
+    
+    
+    
+    \skipper{Choose pieces}
+
 \begin{tikzpicture}
         \node[alice, minimum size=1cm] at (-1,2) (alice) {};
         \node[statez, fill=white] at (1,2) {};
@@ -73,7 +79,8 @@
         
     Everyone has pieces of one \textbf{shape.}
     
-\skipper 
+    
+\skipper{Setup your pieces} 
     
 \begin{tikzpicture}[scale=0.65]
 
@@ -131,43 +138,9 @@
 
 \newpage    
   
-\skipper 
-    
-\begin{tikzpicture}[scale=0.65]
-
-    \scriptsize
-    \begin{scope}[xscale=-1]
-
-    \boardy 
-    
-    
-    \node[staten] (1n) at (1) {};  
-     
-    \node[statez, fill=white] (1t) at (1a) {}; 
-     
-    \node[statez, fill=Cerulean] (2t) at (2){};       
-      
-    \node[statez, fill=WildStrawberry] (3t) at (3) {};  
-    
-    \node[statez, fill=Goldenrod] (4t) at (4) {};     
-       
-    \node[statez, fill=LimeGreen] (5t) at (5) {};       
-    
-    \draw[>=triangle 45, line width=1.5pt, ->] (1n) -- (1t) ;
-
-    \draw[>=triangle 45, line width=1.5pt, ->] (1t) -- (4.3,-2) node[left]{out};    
-    
-    \end{scope}
-\end{tikzpicture}
-    
-    All \textbf{white} pieces travel to \textbf{white,} blue to blue etc. 
-    
-    At their goals they move out.
-    
-    \textbf{Three out wins.}
 
 
-   \skipper
+\skipper{Setup blocks}
 
 \newsavebox{\mybox}
 \sbox{\mybox}{%    
@@ -230,9 +203,44 @@
 
     Safe \textbf{grey blocks} for later.
   
+\skipper{Winning condition} 
+    
+\begin{tikzpicture}[scale=0.65]
+
+    \scriptsize
+    \begin{scope}[xscale=-1]
+
+    \boardy 
+    
+    
+    \node[staten] (1n) at (1) {};  
+     
+    \node[statez, fill=white] (1t) at (1a) {}; 
+     
+    \node[statez, fill=Cerulean] (2t) at (2){};       
+      
+    \node[statez, fill=WildStrawberry] (3t) at (3) {};  
+    
+    \node[statez, fill=Goldenrod] (4t) at (4) {};     
+       
+    \node[statez, fill=LimeGreen] (5t) at (5) {};       
+    
+    \draw[>=triangle 45, line width=1.5pt, ->] (1n) -- (1t) ;
+
+    \draw[>=triangle 45, line width=1.5pt, ->] (1t) -- (4.3,-2) node[left]{out};    
+    
+    \end{scope}
+\end{tikzpicture}
+    
+    All \textbf{white} pieces travel to \textbf{white,} blue to blue etc. 
+    
+    At their goals they move out.
+    
+    \textbf{Three out wins.}  
+  
 \newpage
   
-\skipper 
+\skipper{Directions} 
 
  
 
@@ -261,7 +269,7 @@
     
     You can move \textbf{in any direction,} on the ring and on the star.
     
- \skipper
+ \skipper{No jumping}
 
     \centering
 \begin{tikzpicture}[scale=0.65]
@@ -269,6 +277,8 @@
     \begin{scope}[xscale=-1]
 
     \boardy 
+
+    \draw[>=triangle 45, line width=1.5pt, shorten >=1.5ex, ->] ({360/\n * (1-1)+95}:\radius)  arc ({360/\n * (1-1)+95}:{360/\n * (-2)+100}:\radius) node[midway,left]{};    
     
     \node[statez, fill=white] (1t) at (1) {};  
     
@@ -286,11 +296,14 @@
      
     \node[stateb, fill=black] (4z) at (4a) {}; 
        
-    \node[statez, fill=LimeGreen] (5t) at (5) {};       
+    %\node[statez, fill=LimeGreen] (5t) at (5) {};       
      
     \node[stateb, fill=black] (5z) at (5a) {};     
     
     \draw[>=triangle 45, line width=1.5pt, shorten >=1.5ex, ->] (1t) -- (4a);
+    
+
+    
     \end{scope}
     \end{tikzpicture}
     
@@ -299,9 +312,46 @@
     But:\textbf{ you cannot jump!}
     
 
-\newpage    
+\skipper{Turn at free nodes}
+
+
+\begin{tikzpicture}[scale=0.65]
+    \scriptsize
+    \begin{scope}[xscale=-1]
+
+    \boardy
+    
+    \node[staten] (1n) at (1) {};  
+     
+    \node[statez, fill=white] (1t) at (1a) {}; 
+    
+    \node[stateb, fill=black] (2t) at (2){};       
+     
+    \node[stateb, fill=black] (2z) at (2a) {}; 
+      
+    \node[stateb, fill=black] (3t) at (3) {};      
+    
+    \node[stateb, fill=black] (3z) at (3a) {};     
+    
+    \node[stateb, fill=black] (4z) at (4) {};     
+       
+    \node[stateb, fill=black] (5z) at (5) {};       
+     
+    \node[inner sep=0pt,outer sep=0,draw] (5n) at (5a) {}; 
+    
+    \draw[>=triangle 45, line width=1.5pt, -] (1n) -- (5n) node[midway,right]{};
+    \draw[>=triangle 45, line width=1.5pt, ->] (5n) -- (1t) node[midway,left]{};
+    
+    \end{scope}
+    \end{tikzpicture}
+    
+    \textbf{Turn} at free corners without stopping. 
+
+    Ways can be long!    
+
+%\newpage    
    
-\skipper
+\skipper{Hit blocks}
 
 \begin{tikzpicture}[scale=0.65]
     \scriptsize
@@ -332,10 +382,11 @@
     
     You can \textbf{hit a black block.} 
     
-    You then \textbf{replace} it on another empty space.
+    You then \textbf{relocate} it on another empty space.
     
+\newpage
   
-\skipper
+\skipper{Swap neighboring pieces}
 
 \begin{tikzpicture}[scale=0.65]
     \scriptsize
@@ -357,8 +408,9 @@
     Of course the way must be free!
     
     
-\newpage    
-\skipper
+%\newpage    
+
+\skipper{Moving out}
     
     
 \begin{tikzpicture}[scale=0.65]
@@ -394,46 +446,10 @@
     When you beat them, you remove them again.
     
   
-\skipper
 
-
-\begin{tikzpicture}[scale=0.65]
-    \scriptsize
-    \begin{scope}[xscale=-1]
-
-    \boardy
+%\newpage
     
-    \node[staten] (1n) at (1) {};  
-     
-    \node[statez, fill=white] (1t) at (1a) {}; 
-    
-    \node[stateb, fill=black] (2t) at (2){};       
-     
-    \node[stateb, fill=black] (2z) at (2a) {}; 
-      
-    \node[stateb, fill=black] (3t) at (3) {};      
-    
-    \node[stateb, fill=black] (3z) at (3a) {};     
-    
-    \node[stateb, fill=black] (4z) at (4) {};     
-       
-    \node[stateb, fill=black] (5z) at (5) {};       
-     
-    \node[inner sep=0pt,outer sep=0,draw] (5n) at (5a) {}; 
-    
-    \draw[>=triangle 45, line width=1.5pt, -] (1n) -- (5n) node[midway,right]{};
-    \draw[>=triangle 45, line width=1.5pt, ->] (5n) -- (1t) node[midway,left]{};
-    
-    \end{scope}
-    \end{tikzpicture}
-    
-    \textbf{Turn} at free corners without stopping. 
-
-    Ways can be long!
-    
-\newpage
-    
-\skipper
+\skipper{Scoring}
     
     \textbf{3:2}
     
@@ -456,13 +472,13 @@
     The winner is who gets \textbf{three} pieces to their goals.
 
 
-\skipper
+\skipper{Edge cases}
 
     \raggedright
     
-    \vspace{5ex}
+    %\vspace{5ex}
     
-    \textbf{Edge cases:}
+%    \textbf{Edge cases:}
 
     \begin{enumerate}
         \item When moving to a corner with multiple pieces, swap with one of them.
@@ -475,12 +491,18 @@
 
 \hrulefill
 
+\centering
 
-\vspace{5ex}
+\medskip
 
-\begin{centering}
-    This is the whole of the law.
-\end{centering}
+    %This is the whole of the law.
+
+\input{thanks.tex}
+
+\medskip
+%\vspace{5ex}
+
+
 
 \vfill
 
