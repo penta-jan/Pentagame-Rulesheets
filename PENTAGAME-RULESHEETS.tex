@@ -1,4 +1,4 @@
-\documentclass[DIV=19,paper=b5,12pt]{scrartcl}
+\documentclass[DIV=16,paper=20cm:20cm,12pt]{scrartcl}
 \usepackage{dingbat}
 \usepackage[hidelinks]{cleveref}
 %\hypersetup{
@@ -91,17 +91,17 @@
 \newcommand{\layout}{
 \begin{centering}
 
-{\sffamily\LARGE{\textbf\headline}}
+{\sffamily\Large{\textbf\headline}}
 \addcontentsline{toc}{section}{\tocent}
 
 \end{centering}
 
-\bigskip
+%\bigskip
 
-\hrulefill
+%\hrulefill
 
 
-\begin{multicols}{2}
+\begin{multicols}{3}
 
 %\noindent\hrulefill
 \general
@@ -114,10 +114,10 @@
 
 
 \medskip
-\parbox{\columnwidth}{
+%\parbox{\columnwidth}{
 \paragraph*{\rulest}
 \rules
-}
+%}
 
 \end{multicols}}
 
@@ -209,6 +209,7 @@ Penta$\cdot$game}
 
 \begin{otherlanguage}{georgian}
 \input{georgian.tex}
+\raggedright
 \layout
 \end{otherlanguage}
 \pagebreak
