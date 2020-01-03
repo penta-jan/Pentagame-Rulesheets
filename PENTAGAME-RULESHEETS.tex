@@ -1,5 +1,10 @@
-\documentclass[DIV=16,paper=20cm:20cm,12pt]{scrartcl}
+\documentclass[DIV=33,paper=A5,9pt]{scrartcl}
+%\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
+\def\spal{3}
+\pagestyle{empty}
 \usepackage{dingbat}
+\usepackage{collect}
+\definecollection{trs}
 \usepackage[hidelinks]{cleveref}
 %\hypersetup{
 %pdftitle={Pentagame Regulae Rules Regeln Regles},
@@ -8,8 +13,8 @@
 %pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
 %}
 
-\usepackage[symbol]{footmisc}
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+%\usepackage[symbol]{footmisc}
+%\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikzpeople}
@@ -27,7 +32,7 @@
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
 \makeatother
 
-\setmainfont{FreeSerif}
+\setmainfont{FreeSans}
 \setsansfont{FreeSans}
 \newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
 
@@ -47,6 +52,9 @@
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{patterns}
 
+
+\setmainfont{FreeSans}
+%\setsansfont{FreeSans} % FreeSerif
 %\usepackage{CJK}
 \usepackage{tikz}
 \raggedbottom
@@ -54,6 +62,8 @@
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
+
+\setlength{\columnseprule}{0.4pt}
 
 \newcommand{\noun}[1]{\textsc{#1}}
 
@@ -88,20 +98,17 @@
 \newcommand{\rulest}{}
 \newcommand{\rules}{}
 \newcommand{\website}{\textsf{\textbf{pentagame.org}}}
+\newcommand{\myhead}{\begin{centering}{\sffamily\Large{\textbf\headline}}\addcontentsline{toc}{section}{\tocent}\end{centering}}
+
 \newcommand{\layout}{
-\begin{centering}
-
-{\sffamily\Large{\textbf\headline}}
-\addcontentsline{toc}{section}{\tocent}
-
-\end{centering}
-
-%\bigskip
-
-%\hrulefill
+\begin{framed}
+    {{\sffamily{\Large{\textbf{\tocent}}}}}
+\end{framed}
 
 
-\begin{multicols}{3}
+
+
+
 
 %\noindent\hrulefill
 \general
@@ -113,13 +120,15 @@
 \objective
 
 
-\medskip
+%\medskip
 %\parbox{\columnwidth}{
 \paragraph*{\rulest}
 \rules
-%}
 
-\end{multicols}}
+\hfill{\footnotesize{(\translator)}}
+%\footnote{Tr: \translator} \translator
+
+}
 
 \setlength{\parskip}{0ex}
 \setlength{\parindent}{0cm}
@@ -136,112 +145,102 @@ Penta$\cdot$game}
 
 \begin{document}
 
-%\maketitle
+\begin{framed}
+\centering
+{\sffamily{\Huge{\textbf{PENTA$\cdot$GAME}}}}
+\end{framed}
 
-
-
-%\phantomsection
-
-
-
- %   \input{illustrated.tex}
-
-
-\clearpage
-
+\begin{multicols}{\spal}
 \input{english.tex}
 \layout
-\pagebreak
+
 
 \begin{otherlanguage}{german}
 \input{deutsch.tex}
 \layout
-\pagebreak
-
-
-%\input{vulgaerdeutsch.tex}
-%\layout
-%\pagebreak
-
-\input{platt.tex}
-\layout 
-\pagebreak
 \end{otherlanguage}
 
 \begin{otherlanguage}{latin}
 \input{latine.tex}
-\setcounter{oldpage}{\thepage}
-\pagenumbering{Roman}
-\setcounter{page}{\theoldpage}
-
 \layout
 \end{otherlanguage}
+
 \pagebreak
-\pagenumbering{arabic}
-\stepcounter{oldpage}
-\setcounter{oldpage}{\theoldpage}
-\setcounter{page}{\theoldpage}
+
+\begin{otherlanguage}{german}
+\input{platt.tex}
+\layout 
+\end{otherlanguage}
+
 
 \begin{otherlanguage}{french}
 \input{francais.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{swedish}
 \input{swedish.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{polish}
 \input{polski.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 
 \begin{otherlanguage}{russian}
 \input{russian.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{georgian}
 \input{georgian.tex}
 \raggedright
 \layout
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{spanish}
 \input{espaniol.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{greek}
 \input{greek.tex}
 {\small
 \layout}
 \end{otherlanguage}
-\pagebreak
 
 \begin{otherlanguage}{bahasai}
 \input{indonesian.tex}
 \layout
 \end{otherlanguage}
-\pagebreak
 
 {\tradChinesefont
 \input{tradchinese.tex}
 \layout}
 \pagebreak
-
 \input{simplechinese.tex}
 \layout
 
-%\end{multicols}
+
+\end{multicols}
+
+\vfill
+
+\setmainfont{FreeSerif}
+
+Thanks to: \input{thanks.tex}
+
+
+
+\begin{framed}
+\centering
+pentagame.org
+\vfill
+\end{framed}
+
 
 
 \end{document}
+
