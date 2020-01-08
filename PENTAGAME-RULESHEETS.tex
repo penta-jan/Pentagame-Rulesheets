@@ -1,6 +1,9 @@
-\documentclass[DIV=33,paper=A5,9pt]{scrartcl}
+\documentclass[DIV=19,paper=A5,9pt]{scrartcl}
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
-\def\spal{3}
+\def\spal{1}
+\setlength{\columnseprule}{0.4pt} % line between column
+
+
 \pagestyle{empty}
 \usepackage{dingbat}
 \usepackage{collect}
@@ -63,7 +66,6 @@
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 
-\setlength{\columnseprule}{0.4pt}
 
 \newcommand{\noun}[1]{\textsc{#1}}
 
@@ -165,7 +167,7 @@ Penta$\cdot$game}
 \layout
 \end{otherlanguage}
 
-\pagebreak
+\columnbreak
 
 \begin{otherlanguage}{german}
 \input{platt.tex}
