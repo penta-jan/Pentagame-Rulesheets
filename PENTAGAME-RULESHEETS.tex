@@ -1,10 +1,10 @@
 \documentclass[DIV=19,paper=A5,9pt]{scrartcl}
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
-\def\spal{1}
+\def\spal{2}
 \setlength{\columnseprule}{0.4pt} % line between column
 
 
-\pagestyle{empty}
+%\pagestyle{empty}
 \usepackage{dingbat}
 \usepackage{collect}
 \definecollection{trs}
@@ -100,18 +100,15 @@
 \newcommand{\rulest}{}
 \newcommand{\rules}{}
 \newcommand{\website}{\textsf{\textbf{pentagame.org}}}
-\newcommand{\myhead}{\begin{centering}{\sffamily\Large{\textbf\headline}}\addcontentsline{toc}{section}{\tocent}\end{centering}}
+\newcommand{\myhead}{\begin{centering}{\sffamily\Large{\textbf\headline}}\end{centering}}
 
 \newcommand{\layout}{
 \begin{framed}
-    {{\sffamily{\Large{\textbf{\tocent}}}}}
+\centering    {{\sffamily{\Large{\textbf{\tocent}}}}}
 \end{framed}
+\addcontentsline{toc}{section}{\tocent}
 
-
-
-
-
-
+\begin{multicols}{2}
 %\noindent\hrulefill
 \general
 \paragraph*{\choosext}
@@ -129,30 +126,38 @@
 
 \hfill{\footnotesize{(\translator)}}
 %\footnote{Tr: \translator} \translator
-
+\end{multicols}
+\newpage
 }
 
 \setlength{\parskip}{0ex}
 \setlength{\parindent}{0cm}
 
 
-\title{
-\includegraphics[width=0.5\textwidth]{Pentagame_board_2018.png}\\
-Penta$\cdot$game}
-%\subtitle{by Jan Suchanek}
-\author{ \href{mailto:jan@pentagame.org}{\makeatletter jan@pentagame.org\makeatother} }
+\title{Penta$\cdot$game: The Rules in Text}
+%\subtitle{The diceless pentagram shaped board game}
+\author{by Jan Suchanek}
+\publishers{\includegraphics[width=0.5\textwidth]{Pentagame-board-nob.png}}
 \date{}
 
 %% Actual Document. Calling the content first, then printing the same layout.
 
 \begin{document}
 
-\begin{framed}
-\centering
-{\sffamily{\Huge{\textbf{PENTA$\cdot$GAME}}}}
-\end{framed}
+\maketitle
 
-\begin{multicols}{\spal}
+\newpage
+\emph{Res ipsa loquitur}
+\newpage
+\tableofcontents
+\newpage
+
+%\begin{framed}
+%\centering
+%{\sffamily{\Huge{\textbf{PENTA$\cdot$GAME}}}}
+%\end{framed}
+
+%\begin{multicols}{\spal}
 \input{english.tex}
 \layout
 
@@ -167,7 +172,6 @@ Penta$\cdot$game}
 \layout
 \end{otherlanguage}
 
-\columnbreak
 
 \begin{otherlanguage}{german}
 \input{platt.tex}
@@ -198,8 +202,8 @@ Penta$\cdot$game}
 
 \begin{otherlanguage}{georgian}
 \input{georgian.tex}
-\raggedright
-\layout
+%\raggedright
+{\large \layout}
 \end{otherlanguage}
 
 \begin{otherlanguage}{spanish}
@@ -209,7 +213,7 @@ Penta$\cdot$game}
 
 \begin{otherlanguage}{greek}
 \input{greek.tex}
-{\small
+{%\small
 \layout}
 \end{otherlanguage}
 
@@ -230,14 +234,24 @@ Penta$\cdot$game}
 \layout
 \end{otherlanguage}
 
+\begin{otherlanguage}{dutch}
+\input{nederlands.tex}
+\layout
+\end{otherlanguage}
 
-\end{multicols}
 
-\vfill
+
+%\end{multicols}
+
+\copyright 2020 Jan Suchanek \& the translators.
 
 \setmainfont{FreeSerif}
 
-Thanks to: \input{thanks.tex}
+\vfill
+
+Thanks to: 
+
+\input{thanks.tex}
 
 
 
