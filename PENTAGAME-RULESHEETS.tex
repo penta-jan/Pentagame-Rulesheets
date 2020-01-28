@@ -92,7 +92,7 @@
 %%% THE ACTUAL LAYOUT %%%
 \newcommand{\layout}{
     \begin{framed}
-    \centering {{{\Large{\textbf{\tocent}}}}}
+        \centering {{{\Large{\textbf{\tocent}}}}}
     \end{framed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
@@ -113,32 +113,38 @@
 
 \newcommand{\layoutara}{
     \begin{framed}
-    \centering {{{\Large{\textbf{\tocent}}}}}
+        \centering {{{\Large{\textbf{\tocent}}}}}
     \end{framed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
-    \general
     
-    \medskip
-    \textbf{\choosext}
+ 
+         \textbf{\objectivet}
+           
+        \objective
+        
+        \medskip
+        
+        \textbf{\rulest}
+        
+        \rules
+
+    \columnbreak
     
-    \choosex
-    
-    \medskip
-    \textbf{\setupt}
-    \setup
-    
-    \medskip
-    \textbf{\objectivet}
-    
-    \objective
-    
-    \medskip
-    \textbf{\rulest}
-    
-    \rules
-    
-    \par
+        \general
+        
+        \medskip
+        
+        \textbf{\choosext}
+        
+        \choosex
+        
+        \medskip
+        
+        \textbf{\setupt}
+        
+        \setup
+        
     %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
     \newpage
@@ -249,10 +255,10 @@
 
 {\tradChinesefont
 \input{tradchinese.tex}
-{\large \layout}}
+{\Large \layout}}
 \pagebreak
 \input{simplechinese.tex}
-{\large \layout}
+{\Large \layout}
 
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
