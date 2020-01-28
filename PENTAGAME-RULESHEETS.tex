@@ -1,11 +1,15 @@
-\documentclass[DIV=19,paper=A5,9pt]{scrartcl}
+\documentclass[DIV=19,paper=A5,fontsize=10pt]{scrartcl}
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
 \def\spal{2}
 \setlength{\columnseprule}{0.4pt} % line between column
 
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{lettrine}
 
 \usepackage{dingbat}
 \usepackage{collect}
+\usepackage{ulem}
 \definecollection{trs}
 
 %\usepackage[hidelinks]{hyperref}
@@ -39,15 +43,15 @@
 \newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
 
 \usepackage{setspace}
-\usepackage{multicol}
-\usepackage{titlesec}
+
+
 \usepackage{microtype}
 
 
 % does not seem necessary at all?!
 %\setmainfont{FreeSans}
 \setsansfont{FreeSans}
-\setmainfont{FreeSans}
+\setmainfont{FreeSerif}
 \setmonofont{FreeSerif}
 
 \usepackage{tikz}
@@ -106,44 +110,36 @@
     \paragraph*{\rulest}
     \rules
     \par
-    \hfill{\footnotesize{(\translator)}}
+    %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
     \newpage
 }
 
 \newcommand{\layoutara}{
     \begin{framed}
-        \centering {{{\Large{\textbf{\tocent}}}}}
+        \centering {{{\LARGE{\textbf{\tocent}}}}}
     \end{framed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
-    
- 
-         \textbf{\objectivet}
-           
-        \objective
-        
-        \medskip
-        
-        \textbf{\rulest}
-        
-        \rules
-
-    \columnbreak
+    \RLmulticolcolumns
     
         \general
         
-        \medskip
-        
-        \textbf{\choosext}
+        \medskip\uline{\textbf{\choosext}}\smallskip
         
         \choosex
         
-        \medskip
-        
-        \textbf{\setupt}
+        \medskip\uline{\textbf{\setupt}}\smallskip
         
         \setup
+        
+        \medskip\uline{\textbf{\objectivet}}\smallskip
+           
+        \objective
+        
+        \medskip\uline{\textbf{\rulest}}\smallskip
+        
+        \rules
         
     %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
@@ -231,20 +227,21 @@
 
 \begin{otherlanguage}{russian}
     \input{russian.tex}
-    \layout
+    \raggedright
+    {\layout}
 \end{otherlanguage}
 
 \begin{otherlanguage}{georgian}
     \input{georgian.tex}
     \raggedright
-    {\large \layout}
+    {\layout}
 \end{otherlanguage}
 
 
 
 \begin{otherlanguage}{greek}
     \input{greek.tex}
-    {%\small
+    {\small
     \layout}
 \end{otherlanguage}
 
@@ -255,14 +252,15 @@
 
 {\tradChinesefont
 \input{tradchinese.tex}
-{\Large \layout}}
+{\large \layout}}
 \pagebreak
 \input{simplechinese.tex}
-{\Large \layout}
+{\large \layout}
 
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
-    {\large \layoutara}
+    \raggedleft
+    {\layoutara}   % tried \large \Large
 \end{otherlanguage}
 
 
