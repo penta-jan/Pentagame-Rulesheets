@@ -4,7 +4,6 @@
 \setlength{\columnseprule}{0.4pt} % line between column
 
 
-
 \usepackage{dingbat}
 \usepackage{collect}
 \definecollection{trs}
@@ -23,7 +22,6 @@
 \usepackage{tikzpeople}
 
 \usepackage{framed}
-
 \usepackage{polyglossia}
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
@@ -45,7 +43,8 @@
 \usepackage{titlesec}
 \usepackage{microtype}
 
-\usepackage[novoc]{arabxetex}  % does not seem necessary at all?!
+
+% does not seem necessary at all?!
 %\setmainfont{FreeSans}
 \setsansfont{FreeSans}
 \setmainfont{FreeSans}
@@ -112,6 +111,39 @@
     \newpage
 }
 
+\newcommand{\layoutara}{
+    \begin{framed}
+    \centering {{{\Large{\textbf{\tocent}}}}}
+    \end{framed}
+    \addcontentsline{toc}{section}{\tocent}
+    \begin{multicols}{2}
+    \general
+    
+    \medskip
+    \textbf{\choosext}
+    
+    \choosex
+    
+    \medskip
+    \textbf{\setupt}
+    \setup
+    
+    \medskip
+    \textbf{\objectivet}
+    
+    \objective
+    
+    \medskip
+    \textbf{\rulest}
+    
+    \rules
+    
+    \par
+    %\hfill{\footnotesize{(\translator)}}
+    \end{multicols}
+    \newpage
+}
+
 \setlength{\parskip}{0ex}
 \setlength{\parindent}{0cm}
 
@@ -140,6 +172,7 @@
 \setlength\columnsep{10pt}
 
 \newpage
+
 
 
 \begin{otherlanguage}{latin}
@@ -216,14 +249,14 @@
 
 {\tradChinesefont
 \input{tradchinese.tex}
-\layout}
+{\large \layout}}
 \pagebreak
 \input{simplechinese.tex}
-\layout
+{\large \layout}
 
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
-    \layout
+    {\large \layoutara}
 \end{otherlanguage}
 
 
