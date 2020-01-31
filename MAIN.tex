@@ -1,4 +1,4 @@
-\documentclass[DIV=19,paper=A5,fontsize=10pt]{scrartcl}
+\documentclass[DIV=19,paper=A5,fontsize=10pt,twopage]{scrartcl}
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
 \def\spal{2}
 \setlength{\columnseprule}{0.4pt} % line between column
@@ -30,7 +30,7 @@
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
 \setmainlanguage{english}
-\setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian,swedish,polish,danish,arabic}
+\setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian,swedish,polish,danish,dutch,arabic}
 
 \DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
 
@@ -41,7 +41,7 @@
 \newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
 \newfontfamily\arabicfont[Script=Arabic]{Amiri}
 \newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
-
+\newfontfamily\georgianfont[Script=Georgian]{FreeSerif}
 \usepackage{setspace}
 
 
@@ -117,30 +117,21 @@
 
 \newcommand{\layoutara}{
     \begin{framed}
-        \centering {{{\LARGE{\textbf{\tocent}}}}}
+        \centering {{{\Large{\textbf{\tocent}}}}}
     \end{framed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
-    \RLmulticolcolumns
-    
-        \general
-        
-        \medskip\uline{\textbf{\choosext}}\smallskip
-        
-        \choosex
-        
-        \medskip\uline{\textbf{\setupt}}\smallskip
-        
-        \setup
-        
-        \medskip\uline{\textbf{\objectivet}}\smallskip
-           
-        \objective
-        
-        \medskip\uline{\textbf{\rulest}}\smallskip
-        
+    %\RLmulticolcolumns
+    \RTLmulticolcolumns  %% Only this works properly with the bidi package
+        \general\par
+        \medskip\uline{\textbf{\choosext}}\par\smallskip
+        \choosex\par
+        \medskip\uline{\textbf{\setupt}}\par\smallskip
+        \setup\par
+        \medskip\uline{\textbf{\objectivet}}\par\smallskip
+        \objective\par
+        \medskip\uline{\textbf{\rulest}}\par\smallskip
         \rules
-        
     %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
     \newpage
@@ -150,10 +141,10 @@
 \setlength{\parindent}{0cm}
 
 
-\title{Penta$\cdot$game: The Rules in Text}
+\title{PENTAGAME}
 %\subtitle{The diceless pentagram shaped board game}
-\author{by Jan Suchanek}
-\publishers{\includegraphics[width=0.5\textwidth]{Pentagame-board-nob.png}}
+\author{\copyright\ Jan Suchanek}
+\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
 \date{}
 
 %% Actual Document. Calling the content first, then printing the same layout.
@@ -161,9 +152,12 @@
 \begin{document}
 
 \maketitle
-
+\thispagestyle{empty}
 \setlength\columnsep{50pt}
-\begin{multicols}{2}
+
+\vfill
+
+\begin{multicols}{3}
 \makeatletter
 \renewcommand\tableofcontents{%
     \@starttoc{toc}%
@@ -173,9 +167,10 @@
 \end{multicols}
 \setlength\columnsep{10pt}
 
+\newpage\thispagestyle{empty}
+~
 \newpage
-
-
+\setcounter{page}{1}
 
 \begin{otherlanguage}{latin}
     \input{latine.tex}
@@ -192,6 +187,9 @@
     \layout
 \end{otherlanguage}
 
+\input{english.tex}
+\layout
+
 \begin{otherlanguage}{ngerman}
     \input{deutsch.tex}
     \layout
@@ -207,8 +205,7 @@
 \layout
 \end{otherlanguage}
 
-\input{english.tex}
-\layout
+
 
 \begin{otherlanguage}{danish}
 \input{danish.tex}
@@ -237,8 +234,6 @@
     {\layout}
 \end{otherlanguage}
 
-
-
 \begin{otherlanguage}{greek}
     \input{greek.tex}
     {\small
@@ -250,9 +245,10 @@
     \layout
 \end{otherlanguage}
 
-{\tradChinesefont
+%{\tradChinesefont
 \input{tradchinese.tex}
-{\large \layout}}
+%\renewcommand{\tocent}{繁體中文}
+{\large \layout}%}
 \pagebreak
 \input{simplechinese.tex}
 {\large \layout}
@@ -260,16 +256,18 @@
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
     \raggedleft
-    {\layoutara}   % tried \large \Large
+    {\layoutara}   
 \end{otherlanguage}
 
 
 
 %\end{multicols}
 
-\copyright 2020 Jan Suchanek \& the translators.
+%\copyright 2020 Jan Suchanek \& the translators.
 
 \setmainfont{FreeSerif}
+\thispagestyle{empty}
+~
 
 \vfill
 \centering
