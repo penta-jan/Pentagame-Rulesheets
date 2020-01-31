@@ -44,9 +44,9 @@
 \newfontfamily\georgianfont[Script=Georgian]{FreeSerif}
 \usepackage{setspace}
 
-
+\usepackage{marvosym} % for heart shape
 \usepackage{microtype}
-
+\usepackage{shapepar}
 
 % does not seem necessary at all?!
 %\setmainfont{FreeSans}
@@ -113,6 +113,10 @@
     %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
     \newpage
+}
+
+\newcommand{\layoutstar}{
+\scriptsize   \input{shapepar.tex}
 }
 
 \newcommand{\layoutara}{
@@ -189,6 +193,7 @@
 
 \input{english.tex}
 \layout
+
 
 \begin{otherlanguage}{ngerman}
     \input{deutsch.tex}
@@ -267,7 +272,7 @@
 
 \setmainfont{FreeSerif}
 \thispagestyle{empty}
-~
+\layoutstar
 
 \vfill
 \centering
@@ -278,9 +283,8 @@ Thanks to:
 
 
 \begin{framed}
-\centering
-pentagame.org
-\vfill
+    \centering
+    \verb|pentagame.org|
 \end{framed}
 
 
