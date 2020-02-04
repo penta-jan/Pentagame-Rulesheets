@@ -7,6 +7,8 @@
 \usepackage{multicol}
 \usepackage{lettrine}
 
+\usepackage{yfonts}\usepackage{soul}
+
 \usepackage{dingbat}
 \usepackage{collect}
 \usepackage{ulem}
@@ -115,10 +117,7 @@
     \newpage
 }
 
-\newcommand{\layoutstar}{
-\scriptsize   \input{shapepar.tex}
-}
-
+%%% Arabic Layout
 \newcommand{\layoutara}{
     \begin{framed}
         \centering {{{\Large{\textbf{\tocent}}}}}
@@ -135,6 +134,32 @@
         \medskip\uline{\textbf{\objectivet}}\par\smallskip
         \objective\par
         \medskip\uline{\textbf{\rulest}}\par\smallskip
+        \rules
+    %\hfill{\footnotesize{(\translator)}}
+    \end{multicols}
+    \newpage
+}
+
+
+%% FRAKTUR LAYOUT
+
+\newcommand{\layoutfrak}{
+    %\renewcommand{\frakdefault}{ysmfrak}
+    \frakfamily\fraklines
+    \large
+    \begin{framed}
+        \centering {{{\Large{\textswab{\tocent}}}}}
+    \end{framed}
+    \addcontentsline{toc}{section}{\textfrak{\tocent}}
+    \begin{multicols}{2}
+        \general\par
+        \medskip\textswab{Poppen}\par\smallskip  % frak seems not to work with a command!
+        \choosex\par
+        \medskip\textswab{Opbuu}\par\smallskip
+        \setup\par
+        \medskip\textswab{Teel vun de Speel}\par\smallskip
+        \objective\par
+        \medskip\textswab{Regelwark}\par\smallskip
         \rules
     %\hfill{\footnotesize{(\translator)}}
     \end{multicols}
@@ -201,8 +226,8 @@
 \end{otherlanguage}
 
 \begin{otherlanguage}{german}
-    \input{platt.tex}
-    \layout 
+    \input{plattfrak.tex}
+    \layoutfrak 
 \end{otherlanguage}
 
 \begin{otherlanguage}{dutch}
@@ -272,7 +297,9 @@
 
 \setmainfont{FreeSerif}
 \thispagestyle{empty}
-\layoutstar
+
+\scriptsize   
+\input{shapepar.tex}
 
 \vfill
 \centering
