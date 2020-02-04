@@ -2,12 +2,18 @@
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
 \def\spal{2}
 \setlength{\columnseprule}{0.4pt} % line between column
-
+\usepackage{standalone}
 \usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{lettrine}
 
 \usepackage{yfonts}\usepackage{soul}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+%\usepackage{libertineotf}
+
 
 \usepackage{dingbat}
 \usepackage{collect}
@@ -24,8 +30,8 @@
 %}
 
 
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tikzpeople}
+
+%\usepackage{tikzpeople}
 
 \usepackage{framed}
 \usepackage{polyglossia}
@@ -54,7 +60,7 @@
 %\setmainfont{FreeSans}
 \setsansfont{FreeSans}
 \setmainfont{FreeSerif}
-\setmonofont{FreeSerif}
+%\setmonofont{FreeSerif}
 
 \usepackage{tikz}
 \raggedbottom
@@ -172,8 +178,9 @@
 
 \title{PENTAGAME}
 %\subtitle{The diceless pentagram shaped board game}
-\author{\copyright\ Jan Suchanek}
-\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
+\author{}%Jan Suchanek}
+%\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
+\publishers{\input{pentagameinblue.tex}}
 \date{}
 
 %% Actual Document. Calling the content first, then printing the same layout.
@@ -183,6 +190,7 @@
 \maketitle
 \thispagestyle{empty}
 \setlength\columnsep{50pt}
+
 
 \vfill
 
@@ -198,6 +206,14 @@
 
 \newpage\thispagestyle{empty}
 ~
+\vspace{25ex}
+\begin{center}
+    \input{pentalpha.tex}
+\end{center}
+\vfill
+
+Berlin 2020
+
 \newpage
 \setcounter{page}{1}
 
@@ -309,11 +325,16 @@ Thanks to:
 
 
 
+\vfill
+
 \begin{framed}
     \centering
-    \verb|pentagame.org|
+    \texttt{pentagame.org}
 \end{framed}
 
+\newpage
+
+%\input{languagesstar.tex}
 
 
 \end{document}
