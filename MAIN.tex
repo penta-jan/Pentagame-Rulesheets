@@ -1,0 +1,343 @@
+\documentclass[DIV=19,paper=A5,fontsize=10pt,twopage]{scrartcl}
+%\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
+\def\spal{2}
+\setlength{\columnseprule}{0.4pt} % line between column
+\usepackage{standalone}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{lettrine}
+
+\usepackage{yfonts}\usepackage{soul}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+%\usepackage{libertineotf}
+
+
+\usepackage{dingbat}
+\usepackage{collect}
+\usepackage{ulem}
+\definecollection{trs}
+
+%\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+%\hypersetup{
+%pdftitle={Pentagame Regulae Rules Regeln Regles},
+%pdfsubject={Pentagame Rules in Many Languages},
+%pdfauthor={Jan Suchanek et al.},
+%pdfkeywords={Pentagame board game rules explained latin english german deutsch latine francais russian chinese spanish espaniol}
+%}
+
+
+
+%\usepackage{tikzpeople}
+
+\usepackage{framed}
+\usepackage{polyglossia}
+\usepackage{xeCJK}
+\providecommand{\chapterformat}{}
+\setmainlanguage{english}
+\setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian,swedish,polish,danish,dutch,arabic}
+
+\DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+\newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
+\newfontfamily\georgianfont[Script=Georgian]{FreeSerif}
+\usepackage{setspace}
+
+\usepackage{marvosym} % for heart shape
+\usepackage{microtype}
+\usepackage{shapepar}
+
+% does not seem necessary at all?!
+%\setmainfont{FreeSans}
+\setsansfont{FreeSans}
+\setmainfont{FreeSerif}
+%\setmonofont{FreeSerif}
+
+\usepackage{tikz}
+\raggedbottom
+\raggedcolumns
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\newcommand{\noun}[1]{\textsc{#1}}
+
+\newcounter{oldpage}
+
+\makeatletter
+\renewcommand\paragraph{%
+\@startsection{paragraph}{4}%
+{\z@}{1ex\@plus 1ex \@minus .2ex}%
+{0.2ex \@plus .2ex}%
+  {\sffamily\normalsize\bfseries}%
+ }
+ \makeatother
+
+%%% Document specific commands
+
+\newcommand{\myskip}{\smallskip}
+\newcommand{\headline}{{\LARGE{}Pentagame}}
+\newcommand{\tocent}{}
+\newcommand{\translator}{}
+\newcommand{\general}{}
+\newcommand{\choosext}{}
+\newcommand{\choosex}{}
+\newcommand{\setupt}{}
+\newcommand{\setup}{}
+\newcommand{\objectivet}{}
+\newcommand{\objective}{}
+\newcommand{\rulest}{}
+\newcommand{\rules}{}
+\newcommand{\website}{\textsf{\textbf{pentagame.org}}}
+\newcommand{\myhead}{\begin{centering}{\sffamily\Large{\textbf\headline}}\end{centering}}
+
+
+%%% THE ACTUAL LAYOUT %%%
+\newcommand{\layout}{
+    \begin{framed}
+        \centering {{{\Large{\textbf{\tocent}}}}}
+    \end{framed}
+    \addcontentsline{toc}{section}{\tocent}
+    \begin{multicols}{2}
+    \general
+    \paragraph*{\choosext}
+    \choosex
+    \paragraph*{\setupt}
+    \setup
+    \paragraph*{\objectivet}
+    \objective
+    \paragraph*{\rulest}
+    \rules
+    \par
+    %\hfill{\footnotesize{(\translator)}}
+    \end{multicols}
+    \newpage
+}
+
+%%% Arabic Layout
+\newcommand{\layoutara}{
+    \begin{framed}
+        \centering {{{\Large{\textbf{\tocent}}}}}
+    \end{framed}
+    \addcontentsline{toc}{section}{\tocent}
+    \begin{multicols}{2}
+    %\RLmulticolcolumns
+    \RTLmulticolcolumns  %% Only this works properly with the bidi package
+        \general\par
+        \medskip\uline{\textbf{\choosext}}\par\smallskip
+        \choosex\par
+        \medskip\uline{\textbf{\setupt}}\par\smallskip
+        \setup\par
+        \medskip\uline{\textbf{\objectivet}}\par\smallskip
+        \objective\par
+        \medskip\uline{\textbf{\rulest}}\par\smallskip
+        \rules
+    %\hfill{\footnotesize{(\translator)}}
+    \end{multicols}
+    \newpage
+}
+
+
+%% FRAKTUR LAYOUT
+
+\newcommand{\layoutfrak}{
+    %\renewcommand{\frakdefault}{ysmfrak}
+    \frakfamily\fraklines
+    \large
+    \begin{framed}
+        \centering {{{\Large{\textswab{\tocent}}}}}
+    \end{framed}
+    \addcontentsline{toc}{section}{\textfrak{\tocent}}
+    \begin{multicols}{2}
+        \general\par
+        \medskip\textswab{Poppen}\par\smallskip  % frak seems not to work with a command!
+        \choosex\par
+        \medskip\textswab{Opbuu}\par\smallskip
+        \setup\par
+        \medskip\textswab{Teel vun de Speel}\par\smallskip
+        \objective\par
+        \medskip\textswab{Regelwark}\par\smallskip
+        \rules
+    %\hfill{\footnotesize{(\translator)}}
+    \end{multicols}
+    \newpage
+}
+
+\setlength{\parskip}{0ex}
+\setlength{\parindent}{0cm}
+
+
+\title{\so{PENTAGAME}}
+%\subtitle{The diceless pentagram shaped board game}
+\author{}%Jan Suchanek}
+%\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
+\publishers{\input{pentagameinblue.tex}}
+\date{}
+
+%% Actual Document. Calling the content first, then printing the same layout.
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\setlength\columnsep{50pt}
+
+
+\vfill
+
+\begin{multicols}{3}
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+\tableofcontents
+\end{multicols}
+\setlength\columnsep{10pt}
+
+\newpage\thispagestyle{empty}
+\emph{`Eon is a child at play, moving counters; the kingdom is a child's.'}
+
+\hfill ---\noun{Heraclitus}
+
+\hfill B52DK
+
+\vspace{25ex}
+\begin{center}
+    \input{pentalpha.tex}
+\end{center}
+\vfill
+
+Berlin $2020$
+
+\newpage
+\setcounter{page}{1}
+
+\begin{otherlanguage}{latin}
+    \input{latine.tex}
+    \layout 
+\end{otherlanguage}
+
+\begin{otherlanguage}{spanish}
+    \input{espaniol.tex}
+    \layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{french}
+    \input{francais.tex}
+    \layout
+\end{otherlanguage}
+
+\input{english.tex}
+\layout
+
+\begin{otherlanguage}{ngerman}
+    \input{deutsch.tex}
+    \layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{german}
+    \input{plattfrak.tex}
+    \layoutfrak 
+\end{otherlanguage}
+
+\begin{otherlanguage}{dutch}
+\input{nederlands.tex}
+\layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{danish}
+\input{danish.tex}
+\layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{swedish}
+    \input{swedish.tex}
+    \layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{polish}
+    \input{polski.tex}
+    \layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{russian}
+    \input{russian.tex}
+    \raggedright
+    {\layout}
+\end{otherlanguage}
+
+\begin{otherlanguage}{georgian}
+    \input{georgian.tex}
+    \raggedright
+    {\layout}
+\end{otherlanguage}
+
+\begin{otherlanguage}{greek}
+    \input{greek.tex}
+    {\small
+    \layout}
+\end{otherlanguage}
+
+\begin{otherlanguage}{bahasai}
+    \input{indonesian.tex}
+    \layout
+\end{otherlanguage}
+
+%{\tradChinesefont
+\input{tradchinese.tex}
+%\renewcommand{\tocent}{繁體中文}
+{\large \layout}%}
+\pagebreak
+\input{simplechinese.tex}
+{\large \layout}
+
+\begin{otherlanguage}{arabic}
+    \input{arabic.tex}
+    \raggedleft
+    {\layoutara}   
+\end{otherlanguage}
+
+
+
+%\end{multicols}
+
+%\copyright 2020 Jan Suchanek \& the translators.
+
+\setmainfont{FreeSerif}
+\thispagestyle{empty}
+
+\scriptsize   
+\input{shapepar.tex}
+
+\vfill
+\centering
+Thanks to: 
+
+\input{thankshere.tex}
+
+
+
+\vfill
+
+\begin{framed}
+    \centering
+    \texttt{pentagame.org}
+\end{framed}
+
+\newpage
+
+%\input{languagesstar.tex}
+
+
+\end{document}
+
