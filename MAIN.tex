@@ -1,4 +1,4 @@
-\documentclass[DIV=19,paper=A5,fontsize=10pt,twopage]{scrartcl}
+\documentclass[DIV=21,paper=A5,fontsize=10pt,twopage]{scrartcl}
 %\documentclass[DIV=21,paper=20cm:20cm,9pt]{scrartcl}
 \def\spal{2}
 \setlength{\columnseprule}{0.4pt} % line between column
@@ -33,7 +33,7 @@
 
 %\usepackage{tikzpeople}
 
-\usepackage{framed}
+\usepackage{mdframed}
 \usepackage{polyglossia}
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
@@ -103,9 +103,9 @@
 
 %%% THE ACTUAL LAYOUT %%%
 \newcommand{\layout}{
-    \begin{framed}
+    \begin{mdframed}
         \centering {{{\Large{\textbf{\tocent}}}}}
-    \end{framed}
+    \end{mdframed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
     \general
@@ -125,9 +125,9 @@
 
 %%% Arabic Layout
 \newcommand{\layoutara}{
-    \begin{framed}
+    \begin{mdframed}
         \centering {{{\Large{\textbf{\tocent}}}}}
-    \end{framed}
+    \end{mdframed}
     \addcontentsline{toc}{section}{\tocent}
     \begin{multicols}{2}
     %\RLmulticolcolumns
@@ -153,9 +153,9 @@
     %\renewcommand{\frakdefault}{ysmfrak}
     \frakfamily\fraklines
     \large
-    \begin{framed}
+    \begin{mdframed}
         \centering {{{\Large{\textswab{\tocent}}}}}
-    \end{framed}
+    \end{mdframed}
     \addcontentsline{toc}{section}{\textfrak{\tocent}}
     \begin{multicols}{2}
         \general\par
@@ -329,10 +329,10 @@ Thanks to:
 
 \vfill
 
-\begin{framed}
+\begin{mdframed}
     \centering
     \texttt{pentagame.org}
-\end{framed}
+\end{mdframed}
 
 \newpage
 
