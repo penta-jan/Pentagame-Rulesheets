@@ -204,27 +204,36 @@
 \end{multicols}
 \setlength\columnsep{10pt}
 
-\newpage\thispagestyle{empty}
-\emph{`Eon is a child at play, moving counters; the kingdom is a child's.'}
+%\newpage\thispagestyle{empty}
+%\emph{`Eon is a child at play, moving counters; the kingdom is a child's.'}
 
-\hfill ---\noun{Heraclitus}
+%\hfill ---\noun{Heraclitus}
 
-\hfill B52DK
+%\hfill B52DK
 
-\vspace{25ex}
-\begin{center}
-    \input{pentalpha.tex}
-\end{center}
-\vfill
+%\vspace{25ex}
+%\begin{center}
+%    \input{pentalpha.tex}
+%\end{center}
+%\vfill
 
-Berlin $2020$
+%Berlin $2020$
 
 \newpage
-\setcounter{page}{1}
 
+%1. doppelseite
 \begin{otherlanguage}{latin}
     \input{latine.tex}
     \layout 
+\end{otherlanguage}
+
+\input{english.tex}%% English 
+\layout
+
+%2. doppelseite
+\begin{otherlanguage}{french}
+    \input{francais.tex}
+    \layout
 \end{otherlanguage}
 
 \begin{otherlanguage}{spanish}
@@ -232,24 +241,18 @@ Berlin $2020$
     \layout
 \end{otherlanguage}
 
-\begin{otherlanguage}{french}
-    \input{francais.tex}
-    \layout
-\end{otherlanguage}
-
-\input{english.tex}
-\layout
-
+%3. doppelseite
 \begin{otherlanguage}{ngerman}
     \input{deutsch.tex}
     \layout
 \end{otherlanguage}
 
-\begin{otherlanguage}{german}
+\begin{otherlanguage}{german} % platt
     \input{plattfrak.tex}
     \layoutfrak 
 \end{otherlanguage}
 
+%4. doppelseite
 \begin{otherlanguage}{dutch}
 \input{nederlands.tex}
 \layout
@@ -260,16 +263,7 @@ Berlin $2020$
 \layout
 \end{otherlanguage}
 
-\begin{otherlanguage}{swedish}
-    \input{swedish.tex}
-    \layout
-\end{otherlanguage}
-
-\begin{otherlanguage}{finnish}
-    \input{finnish.tex}
-    \layout
-\end{otherlanguage}
-
+%5. doppelseite - HEFTMITTE
 \begin{otherlanguage}{polish}
     \input{polski.tex}
     \layout
@@ -281,6 +275,18 @@ Berlin $2020$
     {\layout}
 \end{otherlanguage}
 
+%6. doppelseite
+\begin{otherlanguage}{swedish}
+    \input{swedish.tex}
+    \layout
+\end{otherlanguage}
+
+\begin{otherlanguage}{finnish}
+    \input{finnish.tex}
+    \layout
+\end{otherlanguage}
+
+%7. doppelseite
 \begin{otherlanguage}{georgian}
     \input{georgian.tex}
     \raggedright
@@ -293,10 +299,8 @@ Berlin $2020$
     \layout}
 \end{otherlanguage}
 
-\begin{otherlanguage}{bahasai}
-    \input{indonesian.tex}
-    \layout
-\end{otherlanguage}
+%8. doppelseite
+
 
 %{\tradChinesefont
 \input{tradchinese.tex}
@@ -306,13 +310,21 @@ Berlin $2020$
 \input{simplechinese.tex}
 {\large \layout}
 
+
+%9. doppelseite
+
+\begin{otherlanguage}{bahasai}
+    \input{indonesian.tex}
+    \layout
+\end{otherlanguage}
+
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
     \raggedleft
     {\layoutara}   
 \end{otherlanguage}
 
-
+% Rückseite
 
 %\end{multicols}
 
@@ -330,7 +342,7 @@ Thanks to:
 
 \input{thankshere.tex}
 
-
+Jan Suchanek
 
 \vfill
 
