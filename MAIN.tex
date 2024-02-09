@@ -38,7 +38,7 @@
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
 \setmainlanguage{english}
-\setotherlanguages{french,ngerman,latin,bahasai,russian,greek,spanish,georgian,swedish,polish,danish,dutch,finnish,arabic}
+\setotherlanguages{french,ngerman,latin,bahasai,farsi,russian,greek,spanish,georgian,swedish,polish,danish,turkish,dutch,finnish,arabic}
 
 \DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
 
@@ -179,9 +179,10 @@
 \title{\so{PENTAGAME}}
 %\subtitle{The diceless pentagram shaped board game}
 \author{Jan Suchanek}
+\date{}
 %\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
 \publishers{\input{pentagameinblue.tex}}
-\date{}
+
 
 %% Actual Document. Calling the content first, then printing the same layout.
 
@@ -200,6 +201,7 @@
     \@starttoc{toc}%
 }
 \makeatother
+
 \tableofcontents
 \end{multicols}
 \setlength\columnsep{10pt}
@@ -248,8 +250,8 @@
 \end{otherlanguage}
 
 \begin{otherlanguage}{german} % platt
-    \input{plattfrak.tex}
-    \layoutfrak 
+    \input{platt.tex}
+    \layout%frak 
 \end{otherlanguage}
 
 %4. doppelseite
@@ -299,7 +301,13 @@
     \layout}
 \end{otherlanguage}
 
+\begin{otherlanguage}{turkish}
+    \input{turkish}
+    \layout
+\end{otherlanguage}
+
 %8. doppelseite
+
 
 
 %{\tradChinesefont
@@ -320,6 +328,12 @@
 
 \begin{otherlanguage}{arabic}
     \input{arabic.tex}
+    \raggedleft
+    {\layoutara}   
+\end{otherlanguage}
+
+\begin{otherlanguage}{farsi}
+    \input{farsi.tex}
     \raggedleft
     {\layoutara}   
 \end{otherlanguage}
