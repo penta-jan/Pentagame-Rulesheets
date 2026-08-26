@@ -87,6 +87,7 @@
 \newcommand{\myskip}{\smallskip}
 \newcommand{\headline}{{\LARGE{}Pentagame}}
 \newcommand{\tocent}{}
+\newcommand{\tocline}{}
 \newcommand{\translator}{}
 \newcommand{\general}{}
 \newcommand{\choosext}{}
@@ -106,7 +107,7 @@
     \begin{mdframed}
         \centering {{{\Large{\textbf{\tocent}}}}}
     \end{mdframed}
-    \addcontentsline{toc}{section}{\tocent}
+    \addcontentsline{toc}{section}{\tocline}
     \begin{multicols}{2}
     \general
     \paragraph*{\choosext}
@@ -128,7 +129,7 @@
     \begin{mdframed}
         \centering {{{\Large{\textbf{\tocent}}}}}
     \end{mdframed}
-    \addcontentsline{toc}{section}{\tocent}
+    \addcontentsline{toc}{section}{\tocline}
     \begin{multicols}{2}
     %\RLmulticolcolumns
     \RTLmulticolcolumns  %% Only this works properly with the bidi package
@@ -156,7 +157,7 @@
     \begin{mdframed}
         \centering {{{\Large{\textswab{\tocent}}}}}
     \end{mdframed}
-    \addcontentsline{toc}{section}{\textfrak{\tocent}}
+    \addcontentsline{toc}{section}{\tocline}
     \begin{multicols}{2}
         \general\par
         \medskip\textswab{Poppen}\par\smallskip  % frak seems not to work with a command!
@@ -181,7 +182,7 @@
 \author{Jan Suchanek}
 \date{}
 %\publishers{\includegraphics[width=0.382\textwidth]{Pentagame-board-nob.png}}
-\publishers{\input{pentagameinblue.tex}}
+%\publishers{\input{pentagameinblue.tex}}
 
 
 %% Actual Document. Calling the content first, then printing the same layout.
@@ -190,20 +191,28 @@
 
 \maketitle
 \thispagestyle{empty}
-\setlength\columnsep{50pt}
-
 
 \vfill
 
-\begin{multicols}{3}
+\begingroup
+\raggedright
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength\columnsep{28pt}
 \makeatletter
 \renewcommand\tableofcontents{%
     \@starttoc{toc}%
 }
+\renewcommand{\l@section}[2]{%
+    \par\noindent #1\dotfill #2\par\smallskip
+}
 \makeatother
-
+\begin{multicols}{2}
 \tableofcontents
 \end{multicols}
+\endgroup
+
+\vfill
 \setlength\columnsep{10pt}
 
 %\newpage\thispagestyle{empty}
@@ -285,7 +294,7 @@
 
 \begin{otherlanguage}{finnish}
     \input{finnish.tex}
-    \layout
+    {\small\layout}
 \end{otherlanguage}
 
 %7. doppelseite
@@ -332,11 +341,11 @@
     {\layoutara}   
 \end{otherlanguage}
 
-\begin{otherlanguage}{farsi}
-    \input{farsi.tex}
-    \raggedleft
-    {\layoutara}   
-\end{otherlanguage}
+% \begin{otherlanguage}{farsi}
+%     \input{farsi.tex}
+%     \raggedleft
+%     {\layoutara}   
+% \end{otherlanguage}
 
 % Rückseite
 
