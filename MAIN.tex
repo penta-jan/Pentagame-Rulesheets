@@ -38,7 +38,7 @@
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
 \setmainlanguage{english}
-\setotherlanguages{french,ngerman,latin,italian,hindi,bahasai,farsi,russian,greek,spanish,georgian,swedish,polish,danish,turkish,dutch,finnish,arabic}
+\setotherlanguages{french,ngerman,latin,italian,hindi,sanskrit,bahasai,farsi,russian,greek,spanish,georgian,swedish,polish,danish,turkish,dutch,finnish,arabic}
 
 \DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
 
@@ -346,12 +346,19 @@
     \layout
 \end{otherlanguage}
 
+\begin{otherlanguage}{sanskrit}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+    \input{sanskrit.tex}
+    \layout
+\end{otherlanguage}
 
 
 \begin{otherlanguage}{hindi}
     \input{hindi.tex}
     \layout
 \end{otherlanguage}
+
 
 %{\tradChinesefont
 \input{tradchinese.tex}
