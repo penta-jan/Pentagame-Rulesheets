@@ -48,6 +48,15 @@
 
 \newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
 \newCJKfontfamily{\japanesefont}{Noto Sans CJK JP}
+% Plain fontspec fonts (as opposed to the xeCJK \newCJKfontfamily ones above)
+% used only for the CJK entries in the table of contents. xeCJK's automatic
+% CJK/Latin font switching (and \newCJKfontfamily-declared fonts) stop working
+% once \tableofcontents replays two or more polyglossia \selectlanguage
+% switches from the .toc file, so the ToC lines need a font command that
+% does not depend on xeCJK's script-detection state.
+\newfontfamily\tocTradChinesefont{AR PL UKai HK}
+\newfontfamily\tocJapanesefont{Noto Sans CJK JP}
+\newfontfamily\tocSimpChinesefont{Noto Sans CJK SC}
 \newfontfamily\arabicfont[Script=Arabic]{Amiri}
 \newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
 \newfontfamily\georgianfont[Script=Georgian]{FreeSerif}
