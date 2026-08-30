@@ -38,7 +38,7 @@
 \usepackage{xeCJK}
 \providecommand{\chapterformat}{}
 \setmainlanguage{english}
-\setotherlanguages{french,ngerman,latin,bahasai,farsi,russian,greek,spanish,georgian,swedish,polish,danish,turkish,dutch,finnish,arabic}
+\setotherlanguages{french,ngerman,latin,italian,hindi,bahasai,farsi,russian,greek,spanish,georgian,swedish,polish,danish,turkish,dutch,finnish,arabic}
 
 \DeclareTextCommandDefault{\cyrdash}{\hbox to.8em{---}~}
 
@@ -47,9 +47,11 @@
 \makeatother
 
 \newCJKfontfamily{\tradChinesefont}{AR PL UKai HK}[BoldFont=Noto Sans CJK TC Bold]
+\newCJKfontfamily{\japanesefont}{Noto Sans CJK JP}
 \newfontfamily\arabicfont[Script=Arabic]{Amiri}
 \newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
 \newfontfamily\georgianfont[Script=Georgian]{FreeSerif}
+\newfontfamily\hindifont[Script=Devanagari]{Noto Sans Devanagari}
 \usepackage{setspace}
 
 \usepackage{marvosym} % for heart shape
@@ -60,6 +62,9 @@
 %\setmainfont{FreeSans}
 \setsansfont{FreeSans}
 \setmainfont{FreeSerif}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
 %\setmonofont{FreeSerif}
 
 \usepackage{tikz}
@@ -238,8 +243,23 @@
     \layout 
 \end{otherlanguage}
 
+\begin{otherlanguage}{italian}
+    \input{italiano.tex}
+    \layout 
+\end{otherlanguage}
+
 \input{english.tex}%% English 
 \layout
+
+\begingroup
+% \hyphenpenalty=10000
+% \exhyphenpenalty=10000
+{\small
+\input{shona.tex}
+\layout
+}
+\endgroup
+
 
 %2. doppelseite
 \begin{otherlanguage}{french}
@@ -293,8 +313,10 @@
 \end{otherlanguage}
 
 \begin{otherlanguage}{finnish}
+    {\small
     \input{finnish.tex}
-    {\small\layout}
+    \layout
+    }
 \end{otherlanguage}
 
 %7. doppelseite
@@ -315,9 +337,12 @@
     \layout
 \end{otherlanguage}
 
-%8. doppelseite
 
 
+\begin{otherlanguage}{hindi}
+    \input{hindi.tex}
+    \layout
+\end{otherlanguage}
 
 %{\tradChinesefont
 \input{tradchinese.tex}
@@ -326,7 +351,11 @@
 \pagebreak
 \input{simplechinese.tex}
 {\large \layout}
-
+\pagebreak
+{\japanesefont
+\input{japanese.tex}
+{\layout}
+}
 
 %9. doppelseite
 
@@ -353,31 +382,30 @@
 
 %\copyright 2020 Jan Suchanek \& the translators.
 
-\setmainfont{FreeSerif}
-\thispagestyle{empty}
+% \setmainfont{FreeSerif}
+% \thispagestyle{empty}
 
-\scriptsize   
-\input{shapepar.tex}
+% \scriptsize   
+% \input{shapepar.tex}
 
-\vfill
-\centering
-Thanks to: 
+% \vfill
+% \centering
+% Thanks to: 
 
-\input{thankshere.tex}
+% \input{thankshere.tex}
 
-Jan Suchanek
+% Jan Suchanek
 
-\vfill
+% \vfill
 
-\begin{mdframed}
-    \centering
-    \texttt{pentagame.org}
-\end{mdframed}
+% \begin{mdframed}
+%     \centering
+%     \texttt{pentagame.org}
+% \end{mdframed}
 
-\newpage
+% \newpage
 
-%\input{languagesstar.tex}
+% % \input{languagesstar.tex}
 
 
 \end{document}
-
